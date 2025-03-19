@@ -94,6 +94,10 @@ public abstract class Tower
         this.enemiesInRange = enemiesInRange;
     }
     
+    // Abstract methods
+    protected abstract void applyUpgradeEffects(); // abstract method to apply upgrade effects
+    public abstract void attack();                 // abstract method to attack enemies
+
     // Methods
     public boolean upgrade()
     {
@@ -107,10 +111,24 @@ public abstract class Tower
         
         return true;
     }
-        
-    protected abstract void applyUpgradeEffects();
+    
+    public boolean isInRange(Enemy enemy) // method to check if enemy is in range of tower
+    {
+        double distance = Math.sqrt(Math.pow(this.x - enemy.getX(), 2) + Math.pow(this.y - enemy.getY(), 2));
+        return distance <= this.range;
+    }
 
-
+    public void findTarget() // method to find target enemy
+    {
+        for(Enemy enemy : enemiesInRange)
+        {
+            if(isInRange(enemy))
+            {
+                attack();
+                break;
+            }
+        }
+    }
 
    /* this.cost += 50;
     this.range += 10;
