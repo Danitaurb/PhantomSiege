@@ -5,7 +5,10 @@ import java.util.List;
 import model.enemy.Enemy;
 
 public abstract class Tower 
-{   // fields
+{   // costants
+    private static final int MAX_LEVEL = 3;
+
+    // fields
     int cost;           // cost to build and update tower, in game currency
     int range;          // range of tower
     int level;          // level of tower
@@ -13,6 +16,7 @@ public abstract class Tower
     double fireRate;    // fire rate of tower
     int x;              // x coordinate of tower
     int y;              // y coordinate of tower
+    String name;        // name of tower
     int id;             // id of tower 
     List<Enemy> enemiesInRange; // list of enemies in range of tower
 
@@ -81,7 +85,7 @@ public abstract class Tower
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public List<Enemy> getEnemiesInRange() {
         return enemiesInRange;
     }
@@ -90,9 +94,27 @@ public abstract class Tower
         this.enemiesInRange = enemiesInRange;
     }
     
+    // Methods
+    public boolean upgrade()
+    {
+        if(this.level >= MAX_LEVEL) // checks if tower is already at max level
+        {
+            return false;
+        }
+        this.level++;
+
+        applyUpgradeEffects();
+        
+        return true;
+    }
+        
+    protected abstract void applyUpgradeEffects();
 
 
 
-
-    
+   /* this.cost += 50;
+    this.range += 10;
+    this.damage += 5;
+    this.fireRate += 0.5;
+    */
 }
