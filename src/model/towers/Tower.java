@@ -1,14 +1,14 @@
-package model.tower;
+package model.towers;
 
 import java.util.List;
 
-import model.enemy.Enemy;
+import model.enemies.Enemy;
 
 public abstract class Tower 
-{   // costants
+{   // Costants
     private static final int MAX_LEVEL = 3;
 
-    // fields
+    // Fields
     int cost;           // cost to build and update tower, in game currency
     int range;          // range of tower
     int level;          // level of tower
@@ -19,9 +19,10 @@ public abstract class Tower
     String name;        // name of tower
     int id;             // id of tower 
     List<Enemy> enemiesInRange; // list of enemies in range of tower
+    private long lastAttackTime; // time of last attack
 
     // Constructor
-    public Tower(int cost, int range, double damage, double fireRate, int x, int y, int id) 
+    public Tower(int cost, int range, double damage, double fireRate, int x, int y, int id, String name) 
     {
         this.cost = cost;
         this.range = range;
@@ -31,6 +32,7 @@ public abstract class Tower
         this.y = y;
         this.id = id;
         this.level = 1;
+        this.name = name;
     }
 
     // Getters and Setters
@@ -130,9 +132,53 @@ public abstract class Tower
         }
     }
 
+    protected boolean checkFireRate() // method to check if tower can fire
+    {
+        long currentTime = System.currentTimeMillis(); // Get the current time in milliseconds
+        if (currentTime - lastAttackTime >= 1000 / fireRate) 
+        {
+            lastAttackTime = currentTime;
+            return true;
+        }
+        return false;
+    }
+
    /* this.cost += 50;
     this.range += 10;
     this.damage += 5;
     this.fireRate += 0.5;
+    
+    package model.towers;
+
+public class CannonTower extends Tower
+{
+    // Constructor
+    public CannonTower(int cost, int range, double damage, double fireRate, int x, int y, int id, String name) 
+    {
+        super(cost, range, damage, fireRate, x, y, id, name);
+    }
+
+
+    @Override
+    protected void applyUpgradeEffects()
+    {
+        this.cost += 50;
+        this.range += 1;
+        this.damage += 1;
+    }
+    
+    @Override
+    public void attack() 
+    {
+        throw new UnsupportedOperationException("Unimplemented method 'attack'");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     */
 }
