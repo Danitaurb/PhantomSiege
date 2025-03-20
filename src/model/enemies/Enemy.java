@@ -47,7 +47,7 @@ public abstract class Enemy
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'takeDamageLaser'");
     }
-    
+
     private void die() 
     {
         System.out.println("Enemy has been defeated!");
@@ -57,4 +57,6 @@ public abstract class Enemy
     private void dealDamage() {
     	
     }
+
+    
 }
