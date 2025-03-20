@@ -29,4 +29,9 @@ public class Enemy
     public double getHealth() {
         return health;
     }
+
+    public void takeDamageLaser(double damage, double maxDamage) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'takeDamageLaser'");
+    }
 }

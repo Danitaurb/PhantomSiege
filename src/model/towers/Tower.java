@@ -120,11 +120,13 @@ public abstract class Tower
         if(distance <= this.range)
         {
             enemiesInRange.add(enemy);
+            System.out.println("Enemy in range, added to list");
             return true;
         }
         else if(enemiesInRange.contains(enemy)) // if enemy is not in range, remove from list
         {
-            enemiesInRange.remove(enemy);       
+            enemiesInRange.remove(enemy); 
+            System.out.println("Enemy out of range, removed from list");      
         }
         return false;
     }

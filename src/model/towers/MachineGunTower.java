@@ -1,15 +1,11 @@
 package model.towers;
 
-//import java.util.List;
-
-//import model.enemies.Enemy;
-
-public class CannonTower extends Tower
-{  
+public class MachineGunTower extends Tower
+{ 
     // Constructor
-    public CannonTower(int x, int y, int id)
+    public MachineGunTower(int x, int y, int id)
     {
-        super(250, 1, 2, 1, x, y, id, "Cannon Tower");
+        super(300, 2, 0.5, 2, x, y, id, "Machine Gun Tower");
     }
 
     @Override
@@ -17,7 +13,7 @@ public class CannonTower extends Tower
     {
         this.cost += 50;
         this.range += 1;
-        this.damage += 1;
+        this.damage += 1.25;
     }
     
     @Override
@@ -26,11 +22,12 @@ public class CannonTower extends Tower
         if (checkFireRate()) 
         {
             // Perform the attack logic
-            System.out.println("CannonTower fires a projectile!");
+            System.out.println("MachineGunTower fires a burst of bullets!");
             enemiesInRange.getFirst().takeDamage(damage);
         } else {
             // Not enough time has passed to fire again
-            System.out.println("CannonTower is reloading...");
+            System.out.println("MachineGunTower is reloading...");
         }
     }
+
 }
