@@ -14,14 +14,26 @@ public class Gui
 
     private final JFrame frame;
     private final JPanel panel;
+    private final ImageIcon backgroundImage;
 
     public Gui() {
+        
         frame = new JFrame("Phantom Siege");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1024, 576); // Set the fixed size of the window
         frame.setResizable(false); // Disable resizing to maintain the 16:9 aspect ratio
 
-        panel = new JPanel(new GridBagLayout());
+        // Load the background image
+        backgroundImage = new ImageIcon("src/assets/background_menu.png");
+        // Create a custom panel with background
+        panel = new JPanel(new GridBagLayout()) {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundImage.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+            }
+        };
+        panel.setOpaque(false);
         frame.add(panel);
 
         GridBagConstraints gbc = new GridBagConstraints();

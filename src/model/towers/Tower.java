@@ -117,7 +117,16 @@ public abstract class Tower
     public boolean isInRange(Enemy enemy) // method to check if enemy is in range of tower
     {
         double distance = Math.sqrt(Math.pow(this.x - enemy.getX(), 2) + Math.pow(this.y - enemy.getY(), 2));
-        return distance <= this.range;
+        if(distance <= this.range)
+        {
+            enemiesInRange.add(enemy);
+            return true;
+        }
+        else if(enemiesInRange.contains(enemy)) // if enemy is not in range, remove from list
+        {
+            enemiesInRange.remove(enemy);       
+        }
+        return false;
     }
 
     public void findTarget() // method to find target enemy
@@ -142,43 +151,4 @@ public abstract class Tower
         }
         return false;
     }
-
-   /* this.cost += 50;
-    this.range += 10;
-    this.damage += 5;
-    this.fireRate += 0.5;
-    
-    package model.towers;
-
-public class CannonTower extends Tower
-{
-    // Constructor
-    public CannonTower(int cost, int range, double damage, double fireRate, int x, int y, int id, String name) 
-    {
-        super(cost, range, damage, fireRate, x, y, id, name);
-    }
-
-
-    @Override
-    protected void applyUpgradeEffects()
-    {
-        this.cost += 50;
-        this.range += 1;
-        this.damage += 1;
-    }
-    
-    @Override
-    public void attack() 
-    {
-        throw new UnsupportedOperationException("Unimplemented method 'attack'");
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    */
 }

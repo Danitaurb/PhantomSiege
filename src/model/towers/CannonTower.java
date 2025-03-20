@@ -1,12 +1,12 @@
 package model.towers;
 
-import java.util.List;
+//import java.util.List;
 
-import model.enemies.Enemy;
+//import model.enemies.Enemy;
 
 public class CannonTower extends Tower
 {
-    // Fields
+    /* Fields
     int cost;           // cost to build and update tower, in game currency
     double damage;      // damage of tower
     int range;          // range of tower
@@ -14,7 +14,7 @@ public class CannonTower extends Tower
     double fireRate;    // fire rate of tower
     String name;        // name of tower
     int id;             // id of tower 
-    List<Enemy> enemiesInRange; // list of enemies in range of tower
+    List<Enemy> enemiesInRange; // list of enemies in range of tower*/
     
     
     // Constructor
@@ -38,6 +38,7 @@ public class CannonTower extends Tower
         {
             // Perform the attack logic
             System.out.println("CannonTower fires a projectile!");
+            enemiesInRange.getFirst().takeDamage(damage);
         } else {
             // Not enough time has passed to fire again
             System.out.println("CannonTower is reloading...");
