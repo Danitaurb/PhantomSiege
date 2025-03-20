@@ -21,11 +21,11 @@ public abstract class Enemy
 
 	// Getters and Setters
     public int getX(){
-        return 0;
+        return x;
     }
 
     public int getY() {
-        return 0;
+        return y;
     }
     
     public double getHealth() {
@@ -54,7 +54,7 @@ public abstract class Enemy
         // Additional logic for removing the enemy from the game
     }
     
-    private void dealDamage() {
+    public void dealDamage() {
     	
     }
 
