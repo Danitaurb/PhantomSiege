@@ -5,7 +5,8 @@ import java.util.List;
 import model.enemies.Enemy;
 
 public abstract class Tower 
-{   // Costants
+{  
+	// Costants
     private static final int MAX_LEVEL = 3;
 
     // Fields
