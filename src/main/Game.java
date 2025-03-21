@@ -1,11 +1,13 @@
- package main;
+package main;
+
+//import view.GameScreen;
 
 import javax.swing.JFrame;
 
 public class Game extends JFrame {
 
     private static final long serialVersionUID = 1L;
-    private GameScreen gameScreen;
+    private final GameScreen gameScreen;
 
     public Game() {
         setVisible(true);
@@ -13,12 +15,12 @@ public class Game extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setSize(1024, 576);
-        
-        gameScreen = new GameScreen();
-        add(gameScreen);
+        setSize(2048, 1152);
+
+        gameScreen = new GameScreen(); // Initialize the game screen
     }
 
-
-    
+    public GameScreen getGameScreen() {
+        return gameScreen;
+    }
 }

@@ -1,62 +1,76 @@
 package view;
 
-import javax.swing.*;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Dimension;
+import main.Game;
+import main.GameScreen;
 
-public class Gui 
-{
+import javax.swing.*;
+import java.awt.*;
+
+public class Gui {
     private static final int BUTTON_WIDTH = 200;
     private static final int BUTTON_HEIGHT = 50;
     private static final int SPACING = 20;
 
-    private final JFrame frame;
-    private final JPanel panel;
-    private final ImageIcon backgroundImage;
+    private final Game game; // The main game frame
+    private final JPanel menuPanel; // The menu panel
+    private final GameScreen gameScreen; // The game screen panel
 
-    public Gui() {
-        
-        frame = new JFrame("Phantom Siege");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1024, 576); // Set the fixed size of the window
-        frame.setResizable(false); // Disable resizing to maintain the 16:9 aspect ratio
+    public Gui(Game game) {
+        this.game = game;
+        this.gameScreen = game.getGameScreen();
 
-        // Load the background image
-        backgroundImage = new ImageIcon("src/assets/background_menu.png");
-        // Create a custom panel with background
-        panel = new JPanel(new GridBagLayout()) {
+        // Create the menu panel
+        menuPanel = new JPanel(new GridBagLayout()) {
             @Override
-            protected void paintComponent(java.awt.Graphics g) {
-                super.paintComponent(g);
-                g.drawImage(backgroundImage.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+            protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            ImageIcon imageIcon = new ImageIcon("src/assets/background_menu.png");
+            g.drawImage(imageIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
             }
         };
-        panel.setOpaque(false);
-        frame.add(panel);
+        //menuPanel.setBackground(Color.DARK_GRAY);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.insets = new Insets(SPACING, 0, 0, 0);
 
-        JButton button1 = createButton("Button 1");
-        JButton button2 = createButton("Button 2");
-        JButton button3 = createButton("Button 3");
-        JButton button4 = createButton("Button 4");
+        JButton startButton = createButton("Start Game");
+        JButton exitButton = createButton("Exit");
 
-        gbc.gridy = 0; panel.add(button1, gbc);
-        gbc.gridy = 1; panel.add(button2, gbc);
-        gbc.gridy = 2; panel.add(button3, gbc);
-        gbc.gridy = 3; panel.add(button4, gbc);
+        gbc.gridy = 0;
+        menuPanel.add(startButton, gbc);
+        gbc.gridy = 1;
+        menuPanel.add(exitButton, gbc);
 
-        frame.setLocationRelativeTo(null); // Center the window on the screen
-        frame.setVisible(true);
+        // Add action listeners
+        startButton.addActionListener(e -> startGame());
+        exitButton.addActionListener(e -> System.exit(0));
+
+        // Add the menu panel to the game frame
+        game.add(menuPanel);
+        game.revalidate();
+        game.repaint();
     }
 
     private JButton createButton(String text) {
         JButton button = new JButton(text);
         button.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
         return button;
+    }
+
+    private void startGame() {
+        // Switch from the menu panel to the game screen
+        game.remove(menuPanel);
+        game.add(gameScreen);
+        game.revalidate();
+        game.repaint();
+    }
+
+    public static void main(String[] args) {
+        // Create the game frame
+        Game game = new Game();
+
+        // Initialize the GUI with the game frame
+        new Gui(game);
     }
 }
