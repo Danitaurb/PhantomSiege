@@ -19,15 +19,8 @@ public class IceTower extends Tower
     @Override
     public void attack() 
     {
-        if (checkFireRate()) 
-        {
-            // Perform the attack logic
-            System.out.println("MachineGunTower fires a burst of bullets!");
-            enemiesInRange.getFirst().takeDamage(damage);
-        } else {
-            // Not enough time has passed to fire again
-            System.out.println("MachineGunTower is reloading...");
-        }
+        // Perform the attack logic
+        System.out.println("IceTower fires a burst of bullets!");
+        enemiesInRange.getFirst().takeDamage(damage);
     }
-
 }
