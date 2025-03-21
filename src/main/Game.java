@@ -1,5 +1,8 @@
 package main;
 
+import view.GamePanel;
+import view.GameWindow;
+
 public class Game {
 
     private GameWindow gameWindow;
@@ -8,5 +11,6 @@ public class Game {
     public Game(){
         gamePanel = new GamePanel();
         gameWindow = new GameWindow(gamePanel);
+        gamePanel.requestFocus();
     }
 }
