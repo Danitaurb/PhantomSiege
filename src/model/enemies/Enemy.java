@@ -48,7 +48,7 @@ public abstract class Enemy
         throw new UnsupportedOperationException("Unimplemented method 'takeDamageLaser'");
     }
 
-    private void die() 
+    private void die()
     {
         System.out.println("Enemy has been defeated!");
         // Additional logic for removing the enemy from the game
