@@ -1,10 +1,9 @@
 package view;
 
-import main.GameWindow;
-import main.GameScreen;
-
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
+import main.GameScreen;
+import main.GameWindow;
 
 public class Gui {
     private static final int BUTTON_WIDTH = 200;
@@ -66,11 +65,12 @@ public class Gui {
         gameWindow.repaint();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // Create the game frame
         GameWindow gameWindow = new GameWindow();
+        gameWindow.loopGame();
 
         // Initialize the GUI with the game frame
-        new Gui(gameWindow);
-    }
+        Gui gui = new Gui(gameWindow);
+    }*/
 }

@@ -1,12 +1,13 @@
 package main;
-/*
+
+import view.Gui;
+
 public class MainClass 
 {
-     public static void main(String[] args) 
-	{
-        //System.out.println("Hello, World!");
-        //Gui gui = new Gui();
-        Game game = new Game();
-    }
+    /*public static void main(String[] args) 
+    {
+        GameWindow gameWindow = new GameWindow();
+        gameWindow.loopGame();
+        new Gui(gameWindow);
+    }*/
 }
-*/
