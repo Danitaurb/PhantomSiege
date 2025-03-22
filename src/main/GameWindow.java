@@ -5,22 +5,21 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-public class GameWindow extends JFrame {
+public class GameWindow extends JFrame implements Runnable {
 
     private static final long serialVersionUID = 1L;
     private final GameScreen gameScreen;
     private BufferedImage img;
 
-    private double timePerFrame;
-    private long lastFrame;
     private double timePerUpdate;
     private long lastUpdate;
     private int updates;
     private long lastTimeUPS;
 
+    private Thread gameThread;
+
     public GameWindow() {
 
-        timePerFrame = 1000000000.0 / 120.0;
         timePerUpdate = 1000000000.0 / 60.0;
 
         importImg();
@@ -49,20 +48,17 @@ public class GameWindow extends JFrame {
         
     }
 
+    private void start(){
+        gameThread = new Thread(this){};
+
+        //gameThread.start();
+    }
+
     public void loopGame(){
         while(true){
-            if (System.nanoTime() - lastUpdate >= timePerUpdate){
-                updateGame();
+          
 
-                callUps();
-            }
-
-            if (System.nanoTime() - lastFrame >= timePerFrame){
-                lastFrame = System.nanoTime();
-                repaint();
-            }  else {
-                
-            }
+           
         }      
     }
 
@@ -86,6 +82,35 @@ public class GameWindow extends JFrame {
 
     public static void main(String[] args) {
         GameWindow gameWindow = new GameWindow();
-        new GameWindow().loopGame();
+        gameWindow.start();
+
+    
     }
+
+    public void run(){
+        double timePerFrame;
+        long lastFrame = System.nanoTime();
+
+        timePerFrame = 1000000000.0 / 120.0;
+
+        while (true) { 
+            //Render
+            if (System.nanoTime() - lastFrame >= timePerFrame){
+                lastFrame = System.nanoTime();
+                repaint();
+            }  else {
+                
+            }   
+
+            if (System.nanoTime() - lastUpdate >= timePerUpdate){
+                updateGame();
+            }
+        }
+    }
+        
+       
+        //Update
+
+        //Checking FPS & UPS
+    
 }
