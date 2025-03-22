@@ -1,6 +1,6 @@
 package view;
 
-import main.Game;
+import main.GameWindow;
 import main.GameScreen;
 
 import javax.swing.*;
@@ -11,13 +11,13 @@ public class Gui {
     private static final int BUTTON_HEIGHT = 50;
     private static final int SPACING = 20;
 
-    private final Game game; // The main game frame
+    private final GameWindow gameWindow; // The main game frame
     private final JPanel menuPanel; // The menu panel
     private final GameScreen gameScreen; // The game screen panel
 
-    public Gui(Game game) {
-        this.game = game;
-        this.gameScreen = game.getGameScreen();
+    public Gui(GameWindow gameWindow) {
+        this.gameWindow = gameWindow;
+        this.gameScreen = gameWindow.getGameScreen();
 
         // Create the menu panel
         menuPanel = new JPanel(new GridBagLayout()) {
@@ -47,9 +47,9 @@ public class Gui {
         exitButton.addActionListener(e -> System.exit(0));
 
         // Add the menu panel to the game frame
-        game.add(menuPanel);
-        game.revalidate();
-        game.repaint();
+        gameWindow.add(menuPanel);
+        gameWindow.revalidate();
+        gameWindow.repaint();
     }
 
     private JButton createButton(String text) {
@@ -60,17 +60,17 @@ public class Gui {
 
     private void startGame() {
         // Switch from the menu panel to the game screen
-        game.remove(menuPanel);
-        game.add(gameScreen);
-        game.revalidate();
-        game.repaint();
+        gameWindow.remove(menuPanel);
+        gameWindow.add(gameScreen);
+        gameWindow.revalidate();
+        gameWindow.repaint();
     }
 
     public static void main(String[] args) {
         // Create the game frame
-        Game game = new Game();
+        GameWindow gameWindow = new GameWindow();
 
         // Initialize the GUI with the game frame
-        new Gui(game);
+        new Gui(gameWindow);
     }
 }

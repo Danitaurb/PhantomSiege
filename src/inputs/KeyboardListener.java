@@ -5,13 +5,13 @@ import java.awt.event.KeyListener;
 
 import static main.GameStates.*;
 
-import main.Game;
+import main.GameWindow;
 import main.GameStates;
 
 public class KeyboardListener implements KeyListener {
-	private Game game;
+	private GameWindow game;
 
-	public KeyboardListener(Game game) {
+	public KeyboardListener(GameWindow game) {
 		this.game = game;
 	}
 

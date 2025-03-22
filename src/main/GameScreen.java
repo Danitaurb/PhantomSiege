@@ -1,30 +1,31 @@
 package main;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
-import java.util.Random;
+//import java.nio.Buffer;
+//import java.util.Random;
 
 import javax.swing.JPanel;
 
 public class GameScreen extends JPanel {
     
-    private Random random;
+    //private Random random;
     private BufferedImage img;
+
     public GameScreen(BufferedImage img) {
         this.img = img;
-        random = new Random();
+        //random = new Random();
 
     }
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        g.drawImage(img, 0, 0, null);
+        g.drawImage(img.getSubimage(0, 32*9, 32, 32), 0, 0, null);
     /* 
-         for(int x = 0; x <32; x++)
-         {
+        for(int x = 0; x <32; x++)
+        {
            g.setColor(getRndColor());
            g.fillRect(x * 32, 0, 32, 32);
            for(int y = 0; y < 18; y++)
@@ -33,7 +34,7 @@ public class GameScreen extends JPanel {
                g.fillRect(x * 32, y * 32, 32, 32);
            }
          }
-     */
+     
 
      }
      private Color getRndColor()
@@ -43,9 +44,10 @@ public class GameScreen extends JPanel {
          int g = random.nextInt(255);
          int b = random.nextInt(255);
          return new Color(r,g,b);
-      }
+      }*/
 
 
 
 
-}   
+    }   
+}

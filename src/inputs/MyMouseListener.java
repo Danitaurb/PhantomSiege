@@ -4,14 +4,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import main.Game;
+import main.GameWindow;
 import main.GameStates;
 
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 
-	private Game game;
+	private GameWindow game;
 
-	public MyMouseListener(Game game) {
+	public MyMouseListener(GameWindow game) {
 		this.game = game;
 	}
 
