@@ -11,17 +11,15 @@ public class GameWindow extends JFrame implements Runnable {
     private final GameScreen gameScreen;
     private BufferedImage img;
 
-    private double timePerUpdate;
-    private long lastUpdate;
     private int updates;
     private long lastTimeUPS;
 
     private Thread gameThread;
 
+    private final double FPS_SET = 120;
+    private final double UPS_DATE = 60;
+
     public GameWindow() {
-
-        timePerUpdate = 1000000000.0 / 60.0;
-
         importImg();
 
         setSize(1024 + getInsets().left + getInsets().right, 
@@ -51,16 +49,9 @@ public class GameWindow extends JFrame implements Runnable {
     private void start(){
         gameThread = new Thread(this){};
 
-        //gameThread.start();
+        gameThread.start();
     }
 
-    public void loopGame(){
-        while(true){
-          
-
-           
-        }      
-    }
 
     private void callUps(){
         if (System.currentTimeMillis() - lastTimeUPS >= 1000){
@@ -72,7 +63,6 @@ public class GameWindow extends JFrame implements Runnable {
 
     private void updateGame() {
         updates++;
-        lastUpdate = System.nanoTime();
         //System.out.println("Update game!");
     }
 
@@ -88,22 +78,37 @@ public class GameWindow extends JFrame implements Runnable {
     }
 
     public void run(){
-        double timePerFrame;
-        long lastFrame = System.nanoTime();
+        double timePerFrame = 1000000000.0 / FPS_SET;
+        double timePerUpdate = 1000000000.0 / UPS_DATE;
 
-        timePerFrame = 1000000000.0 / 120.0;
+        long lastFrame = System.nanoTime();
+        long lastUpdate = System.nanoTime();
+        long lastTimeCheck = System.currentTimeMillis();
+
+        int frames = 0;
+        int updates = 0;
 
         while (true) { 
             //Render
             if (System.nanoTime() - lastFrame >= timePerFrame){
-                lastFrame = System.nanoTime();
                 repaint();
+                lastFrame = System.nanoTime();
+                frames++;
             }  else {
                 
             }   
 
             if (System.nanoTime() - lastUpdate >= timePerUpdate){
                 updateGame();
+                lastUpdate = System.nanoTime();
+                updates++;
+            }
+
+            if(System.currentTimeMillis() - lastTimeCheck >= 1000){
+                System.out.println("FPS: " + frames + "| UPS: " + updates);
+                frames = 0;
+                updates = 0;
+                lastTimeCheck = System.currentTimeMillis();
             }
         }
     }
