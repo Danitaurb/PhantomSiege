@@ -1,7 +1,13 @@
 package model.towers;
 
 public class LaserTower extends Tower
-{   // Fields
+{   // Costants
+    private static final int COST_UPGRADE = 100;
+    private static final int RANGE_UPGRADE = 3;
+    private static final int DAMAGE_UPGRADE = 1;
+    private static final int MAX_DAMAGE_UPGRADE = 2;
+
+    // Fields
     //private double minDamage;
     private double maxDamage;
 
@@ -15,10 +21,10 @@ public class LaserTower extends Tower
     @Override
     protected void applyUpgradeEffects()
     {
-        this.cost += 100;
-        this.range += 3;
-        this.damage += 1;
-        this.maxDamage += 2;
+        this.cost += COST_UPGRADE;
+        this.range += RANGE_UPGRADE;
+        this.damage += DAMAGE_UPGRADE;
+        this.maxDamage += MAX_DAMAGE_UPGRADE;
     }
     
     @Override

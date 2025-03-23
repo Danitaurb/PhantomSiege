@@ -5,7 +5,12 @@ import java.util.List;
 import model.enemies.Enemy;
 
 public class FlameThrowerTower extends Tower 
-{
+{   // Costants
+    private static final int COST_UPGRADE = 75;
+    private static final int RANGE_UPGRADE = 1;
+    private static final double DAMAGE_UPGRADE = 1;
+    private static final int FLAME_LENGTH_UPGRADE = 1;
+
     private double theta; // Angle of the flame (in radians)
     int flameWidth = 1;   // Width of the flame
     int flameLength = 3;  // Length of the flame
@@ -20,10 +25,10 @@ public class FlameThrowerTower extends Tower
     @Override
     protected void applyUpgradeEffects() 
     {
-        this.cost += 75;
-        this.range += 1;
-        this.damage += 1;
-        this.flameLength += 1;
+        this.cost += COST_UPGRADE;
+        this.range += RANGE_UPGRADE;
+        this.damage += DAMAGE_UPGRADE;
+        this.flameLength += FLAME_LENGTH_UPGRADE;
     }
     
     @Override

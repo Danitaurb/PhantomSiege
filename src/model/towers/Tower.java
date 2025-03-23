@@ -144,7 +144,7 @@ public abstract class Tower
         }
     }
 
-    protected boolean checkFireRate() // method to check if tower can fire
+    protected boolean isReadyToShoot() // method to check if tower can fire
     {
         long currentTime = System.currentTimeMillis(); // Get the current time in milliseconds
         if (currentTime - lastAttackTime >= 1000 / fireRate) 

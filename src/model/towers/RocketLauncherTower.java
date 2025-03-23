@@ -4,7 +4,13 @@ import managers.GameManager;
 import model.enemies.Enemy;
 
 public class RocketLauncherTower extends Tower
-{   // Fields
+{   // Costants
+    private static final int COST_UPGRADE = 100;
+    private static final int RANGE_UPGRADE = 1;
+    private static final double DAMAGE_UPGRADE = 3;
+    private static final int EXPLOSION_AREA_UPGRADE = 1;
+    
+    // Fields
     private int explosionArea; // Area of the explosion of the rocket
     private int targetX;
     private int targetY;
@@ -19,16 +25,16 @@ public class RocketLauncherTower extends Tower
     @Override
     protected void applyUpgradeEffects() 
     {
-        this.cost += 100;
-        this.range += 1;
-        this.damage += 3;
-        this.explosionArea += 1;
+        this.cost += COST_UPGRADE;
+        this.range += RANGE_UPGRADE;
+        this.damage += DAMAGE_UPGRADE;
+        this.explosionArea += EXPLOSION_AREA_UPGRADE;
     }
 
     @Override
     public void attack() 
     {
-        if (checkFireRate()) 
+        if (isReadyToShoot()) 
         {
             // Perform the attack logic
             // Get the target enemy (e.g., the first enemy in range)

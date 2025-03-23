@@ -30,10 +30,47 @@ public abstract class Enemy
     
     public double getHealth() {
         return health;
-    }    
-    
+    }  
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    // Methods
 	public void move() {
-		
+		// TODO
 	}
 
     public void takeDamage(double damage) {
@@ -55,7 +92,7 @@ public abstract class Enemy
     }
     
     public void dealDamage() {
-    	
+    	// TODO
     }
 
     

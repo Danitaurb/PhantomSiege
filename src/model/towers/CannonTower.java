@@ -5,7 +5,11 @@ package model.towers;
 //import model.enemies.Enemy;
 
 public class CannonTower extends Tower
-{  
+{   // Costants
+    private static final int COST_UPGRADE = 50;
+    private static final int RANGE_UPGRADE = 1;
+    private static final double DAMAGE_UPGRADE = 1;
+
     // Constructor
     public CannonTower(int x, int y, int id)
     {
@@ -15,15 +19,15 @@ public class CannonTower extends Tower
     @Override
     protected void applyUpgradeEffects()
     {
-        this.cost += 50;
-        this.range += 1;
-        this.damage += 1;
+        this.cost += COST_UPGRADE;
+        this.range += RANGE_UPGRADE;
+        this.damage += DAMAGE_UPGRADE;
     }
     
     @Override
     public void attack() 
     {
-        if (checkFireRate()) 
+        if (isReadyToShoot()) 
         {
             // Perform the attack logic
             System.out.println("CannonTower fires a projectile!");
