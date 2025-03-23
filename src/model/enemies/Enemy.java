@@ -10,6 +10,7 @@ public abstract class Enemy
     private int x;
     private int y;
     
+    // Constructor
 	public Enemy(double health, double speed, int reward, int damage, int x, int y) {
 		this.health = health;
 		this.speed = speed;
@@ -82,7 +83,7 @@ public abstract class Enemy
 
     public void takeDamageLaser(double damage, double maxDamage) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'takeDamageLaser'");
+        
     }
 
     private void die()

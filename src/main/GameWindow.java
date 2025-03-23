@@ -16,15 +16,14 @@ public class GameWindow extends JFrame implements Runnable {
 
     private Thread gameThread;
 
+    private final int FRAME_WIDTH = 1024;
+    private final int FRAME_HEIGHT = 576;
     private final double FPS_SET = 120;
     private final double UPS_DATE = 60;
 
-    public GameWindow() {
+    public GameWindow() 
+    {
         importImg();
-
-        setSize(1024 + getInsets().left + getInsets().right, 
-        576 + getInsets().top + getInsets().bottom);
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -34,6 +33,11 @@ public class GameWindow extends JFrame implements Runnable {
         gameScreen = new GameScreen(img); // Initialize the game screen
         add(gameScreen);
         setVisible(true);
+        
+        // Set the frame size to account for insets
+        int frameWidth = FRAME_WIDTH + getInsets().left + getInsets().right;
+        int frameHeight = FRAME_HEIGHT + getInsets().top + getInsets().bottom;
+        setSize(frameWidth, frameHeight);
     }
 
     public void importImg() {
