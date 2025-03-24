@@ -23,7 +23,7 @@ public class Gui {
             @Override
             protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            ImageIcon imageIcon = new ImageIcon("src/assets/background_menu.png");
+            ImageIcon imageIcon = new ImageIcon("src/assets/background_V2.png");
             g.drawImage(imageIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
             }
         };
