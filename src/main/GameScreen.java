@@ -1,29 +1,40 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 //import java.nio.Buffer;
 import java.util.Random;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
+
+
 
 public class GameScreen extends JPanel {
     
     private Random random;
     private BufferedImage img;
+    private final int PANEL_WIDTH = 1024;
+    private final int PANEL_HEIGHT = 576;
 
     private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
 
     public GameScreen(BufferedImage img) 
-    {
+    {   
         this.img = img;
+        setPanelSize();
         loadSprites();
         random = new Random();
 
-    }
 
+    }
+    
+    
+    public void setPanelSize(){
+            setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        }
+    
     
     private void loadSprites()
     {

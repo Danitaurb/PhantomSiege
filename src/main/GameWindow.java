@@ -16,8 +16,7 @@ public class GameWindow extends JFrame implements Runnable {
 
     private Thread gameThread;
 
-    private final int FRAME_WIDTH = 1024;
-    private final int FRAME_HEIGHT = 576;
+    
     private final double FPS_SET = 120;
     private final double UPS_DATE = 60;
 
@@ -31,13 +30,13 @@ public class GameWindow extends JFrame implements Runnable {
         setResizable(false);
         
         gameScreen = new GameScreen(img); // Initialize the game screen
+        
         add(gameScreen);
+        pack();
         setVisible(true);
         
-        // Set the frame size to account for insets
-        int frameWidth = FRAME_WIDTH + getInsets().left + getInsets().right;
-        int frameHeight = FRAME_HEIGHT + getInsets().top + getInsets().bottom;
-        setSize(frameWidth, frameHeight);
+        
+        
     }
 
     public void importImg() {
