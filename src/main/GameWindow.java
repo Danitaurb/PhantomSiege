@@ -5,11 +5,13 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import inputs.KeyboardListener;
+import inputs.MyMouseListener;
+
 public class GameWindow extends JFrame implements Runnable {
 
     private static final long serialVersionUID = 1L;
     private final GameScreen gameScreen;
-    private BufferedImage img;
 
     private int updates;
     private long lastTimeUPS;
@@ -19,17 +21,18 @@ public class GameWindow extends JFrame implements Runnable {
     
     private final double FPS_SET = 120;
     private final double UPS_DATE = 60;
+    private MyMouseListener myMouseListener;
+    private KeyboardListener keyboardListener;
 
     public GameWindow() 
     {
-        importImg();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         setTitle("Phantom Siege");
         setResizable(false);
         
-        gameScreen = new GameScreen(img); // Initialize the game screen
+        gameScreen = new GameScreen(this); // Initialize the game screen
         
         add(gameScreen);
         pack();
@@ -39,15 +42,18 @@ public class GameWindow extends JFrame implements Runnable {
         
     }
 
-    public void importImg() {
-        InputStream is = getClass().getResourceAsStream("/assets/32x32_map_tile.png");
-        try {
-            img = ImageIO.read(is);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+    private void initInputs(){
+        myMouseListener = new MyMouseListener(this);
+        keyboardListener = new KeyboardListener(this);
+        addMouseListener(myMouseListener);
+        addMouseMotionListener(myMouseListener);
+        addKeyListener(keyboardListener);
+
+        requestFocus();
+
     }
+
+    
 
     private void start(){
         gameThread = new Thread(this){};
@@ -75,6 +81,7 @@ public class GameWindow extends JFrame implements Runnable {
 
     public static void main(String[] args) {
         GameWindow gameWindow = new GameWindow();
+        gameWindow.initInputs();
         gameWindow.start();
 
     

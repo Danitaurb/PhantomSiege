@@ -22,7 +22,10 @@ public class KeyboardListener implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-	   // TODO Auto-generated method stub
+	   if(e.getKeyCode() == KeyEvent.VK_W) {
+	       System.out.println("W is pressed");
+	   }
+	   
 	}
 
 	@Override

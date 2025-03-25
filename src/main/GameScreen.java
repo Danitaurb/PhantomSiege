@@ -14,17 +14,19 @@ import javax.swing.JPanel;
 public class GameScreen extends JPanel {
     
     private Random random;
-    private BufferedImage img;
+    private GameWindow game;
+    
     private final int PANEL_WIDTH = 1024;
     private final int PANEL_HEIGHT = 576;
 
-    private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
-
-    public GameScreen(BufferedImage img) 
+    
+    
+    private Render render;
+    public GameScreen(GameWindow game) 
     {   
-        this.img = img;
+        this.game = game;
+        render = new Render(this);
         setPanelSize();
-        loadSprites();
         random = new Random();
 
 
@@ -36,17 +38,11 @@ public class GameScreen extends JPanel {
         }
     
     
-    private void loadSprites()
-    {
-        for(int y = 0; y < 20; y++){
-            for(int x = 0; x < 20; x++){
-                sprites.add(img.getSubimage(x*32, y*32, 32, 32));
-            }
-        }
-    }
+    
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        render.renderGame(g);
 
 //      g.drawImage(sprites.get(103), 0, 0, null);
 //      g.drawImage(img.getSubimage(32*0, 32*10, 32, 32), 32, 0, null);
@@ -57,20 +53,13 @@ public class GameScreen extends JPanel {
 //      g.drawImage(img.getSubimage(32*1, 32*10, 32, 32), 0, 96, null);
 //      g.drawImage(img.getSubimage(32*2, 32*10, 32, 32), 32, 96, null);
 
-        for(int x = 0; x <32; x++){
-           for(int y = 0; y < 18; y++){
-               g.drawImage(sprites.get(getRndInt()), x*32, y*32, null);
-           }
-         }
+       
 
      }
 
 
-    private int getRndInt()
-    {
-        return random.nextInt(399);
-    }
-
+    
+     /* 
      private Color getRndColor()
      {
          //return new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));
@@ -79,7 +68,7 @@ public class GameScreen extends JPanel {
          int b = random.nextInt(255);
          return new Color(r,g,b);
       }
-
+     */
 
 
 

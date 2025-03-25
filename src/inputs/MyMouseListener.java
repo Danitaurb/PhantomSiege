@@ -30,6 +30,12 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
+        if(e.getButton() == MouseEvent.BUTTON1) {
+            System.out.println("Left Click");
+        }
+        else if(e.getButton() == MouseEvent.BUTTON3) {
+            System.out.println("Right Click");
+        }
         
     }
 
