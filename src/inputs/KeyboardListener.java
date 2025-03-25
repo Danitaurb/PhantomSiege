@@ -22,11 +22,17 @@ public class KeyboardListener implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-	   if(e.getKeyCode() == KeyEvent.VK_W) {
-	       System.out.println("W is pressed");
+	   if(e.getKeyCode() == KeyEvent.VK_Q) {
+		   GameStates.gameState = MENU;
+	       System.out.println("Menu");
+	     }
+		else if(e.getKeyCode() == KeyEvent.VK_W){
+			GameStates.gameState = PLAYING;
+		}
+
+
 	   }
 	   
-	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {

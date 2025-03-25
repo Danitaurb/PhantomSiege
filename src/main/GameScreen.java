@@ -21,11 +21,10 @@ public class GameScreen extends JPanel {
 
     
     
-    private Render render;
+    
     public GameScreen(GameWindow game) 
     {   
         this.game = game;
-        render = new Render(this);
         setPanelSize();
         random = new Random();
 
@@ -42,7 +41,7 @@ public class GameScreen extends JPanel {
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        render.renderGame(g);
+        game.getRender().renderGame(g);
 
 //      g.drawImage(sprites.get(103), 0, 0, null);
 //      g.drawImage(img.getSubimage(32*0, 32*10, 32, 32), 32, 0, null);
