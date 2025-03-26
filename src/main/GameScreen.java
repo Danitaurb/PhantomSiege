@@ -16,7 +16,7 @@ public class GameScreen extends JPanel {
     private Dimension size;
     
     private final int PANEL_WIDTH = 1024;
-    private final int PANEL_HEIGHT = 576;
+    private final int PANEL_HEIGHT = 740;
 
     private MyMouseListener myMouseListener;
     private KeyboardListener keyboardListener;
@@ -41,7 +41,7 @@ public class GameScreen extends JPanel {
     
     public void setPanelSize(){
             setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-        }
+    }
     
     
     @Override

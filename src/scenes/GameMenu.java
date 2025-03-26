@@ -87,5 +87,21 @@ public class GameMenu extends GameScene implements ScenesMethods {
         } 
     }
 
+    @Override
+    public void mousePressed(int x, int y) {
+        if (bPlaying.getBounds().contains(x, y)) {
+            bPlaying.setMousePressed(true);
+        } 
+    }
+
+    @Override
+    public void mouseReleased(int x, int y) {
+       resetButtons();
+    }
+       
+    private void resetButtons() {
+        bPlaying.setMousePressed(false);
+    }
+
 
 }

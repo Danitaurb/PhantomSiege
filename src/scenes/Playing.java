@@ -4,20 +4,21 @@ import help.LevelBuild;
 import java.awt.Graphics;
 import main.GameWindow;
 import managers.TileManager;
+import ui.BottomBar;
 
 public class Playing extends GameScene implements ScenesMethods {
 
     private int[][] lvl;
     private TileManager tileManager;
 
+    private BottomBar bottomBar;
 
     public Playing(GameWindow game) {
         super(game);
 
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
-        //the lvl
-        //tilemanager
+        bottomBar = new BottomBar(0, 0, 0, 0);
     }
 
     @Override
@@ -48,6 +49,18 @@ public class Playing extends GameScene implements ScenesMethods {
     public void mouseMoved(int x, int y) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseMoved'");
+    }
+
+    @Override
+    public void mousePressed(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+    }
+
+    @Override
+    public void mouseReleased(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
     }
 
 
