@@ -10,8 +10,6 @@ public class Render {
         public Render(GameWindow game) {
             this.game = game;
             
-            
-            
     }
 
     public void renderGame(Graphics g) {

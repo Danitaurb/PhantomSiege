@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
-
+import static main.GameStates.*;
 import javax.imageio.ImageIO;
 
 import main.GameWindow;
@@ -44,7 +44,6 @@ public class GameMenu extends GameScene implements ScenesMethods {
         bPlaying.draw(g);
     }
         
-    @Override
     public void callMe() {
         // TODO Auto-generated method stub
 
@@ -73,5 +72,20 @@ public class GameMenu extends GameScene implements ScenesMethods {
     {
         return random.nextInt(399);
     }
+
+    @Override
+    public void mouseClicked(int x, int y) {
+        if (bPlaying.getBounds().contains(x, y)) {
+            SetGameState(PLAYING);
+        }
+    }
+
+    @Override
+    public void mouseMoved(int x, int y) {
+        if (bPlaying.getBounds().contains(x, y)) {
+            bPlaying.setMouseOver(true);
+        } 
+    }
+
 
 }

@@ -33,10 +33,21 @@ public class Playing extends GameScene implements ScenesMethods {
         
     }
 
-    @Override
     public void callMe() {
         // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    public void mouseClicked(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+    }
+
+    @Override
+    public void mouseMoved(int x, int y) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseMoved'");
     }
 
 
