@@ -1,5 +1,7 @@
 package main;
 
+import inputs.KeyboardListener;
+import inputs.MyMouseListener;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Random;
@@ -11,22 +13,31 @@ public class GameScreen extends JPanel {
     
     private Random random;
     private GameWindow game;
+    private Dimension size;
     
     private final int PANEL_WIDTH = 1024;
     private final int PANEL_HEIGHT = 576;
 
-    
-    
-    
+    private MyMouseListener myMouseListener;
+    private KeyboardListener keyboardListener;
+
     public GameScreen(GameWindow game) 
     {   
         this.game = game;
         setPanelSize();
         random = new Random();
-
-
     }
     
+    public void initInputs(){
+        myMouseListener = new MyMouseListener(game);
+        keyboardListener = new KeyboardListener(game);
+        addMouseListener(myMouseListener);
+        addMouseMotionListener(myMouseListener);
+        addKeyListener(keyboardListener);
+    
+        requestFocus();
+    
+    }
     
     public void setPanelSize(){
             setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));

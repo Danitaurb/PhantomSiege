@@ -1,7 +1,7 @@
 package managers;
 
+import help.LoadSave;
 import java.awt.image.BufferedImage;
-import java.awt.image.TileObserver;
 import java.util.ArrayList;
 import objects.Tile;
 
@@ -9,7 +9,7 @@ public class TileManager {
 
     public Tile GRASS, WATER, ROAD;
     public BufferedImage atlas;
-    public ArrayList<Tile> tiles = new ArrayList<Tile>();
+    public ArrayList<Tile> tiles = new ArrayList<>();
 
     public TileManager() {
         loadAtlas();

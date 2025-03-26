@@ -3,9 +3,7 @@ package inputs;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
 import main.GameWindow;
-import main.GameStates;
 
 public class MyMouseListener implements MouseListener, MouseMotionListener {
 
@@ -29,13 +27,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        if(e.getButton() == MouseEvent.BUTTON1) {
-            System.out.println("Left Click");
-        }
-        else if(e.getButton() == MouseEvent.BUTTON3) {
-            System.out.println("Right Click");
-        }
+       if (e.getButton() == MouseEvent.BUTTON1) {
+        System.out.println("Mouse position: " + e.getX() + " : " + e.getY()); 
+       }
         
     }
 

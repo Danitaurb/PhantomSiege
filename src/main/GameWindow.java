@@ -1,7 +1,5 @@
 package main;
 
-import inputs.KeyboardListener;
-import inputs.MyMouseListener;
 import javax.swing.JFrame;
 import scenes.GameMenu;
 import scenes.Playing;
@@ -17,10 +15,7 @@ public class GameWindow extends JFrame implements Runnable {
     
         
         private final double FPS_SET = 120;
-        private final double UPS_DATE = 60;
-        private MyMouseListener myMouseListener;
-        private KeyboardListener keyboardListener;
-    
+        private final double UPS_DATE = 60;    
     
         private Render render;
         private GameMenu menu;
@@ -43,21 +38,7 @@ public class GameWindow extends JFrame implements Runnable {
             setTitle("Phantom Siege");
             setResizable(false);
 
-         }
-            
-            
-            private void initInputs(){
-            myMouseListener = new MyMouseListener(this);
-            keyboardListener = new KeyboardListener(this);
-            addMouseListener(myMouseListener);
-            addMouseMotionListener(myMouseListener);
-            addKeyListener(keyboardListener);
-    
-            requestFocus();
-    
         }
-    
-        
     
         private void start(){
             gameThread = new Thread(this){};
@@ -85,7 +66,7 @@ public class GameWindow extends JFrame implements Runnable {
     
         public static void main(String[] args) {
             GameWindow gameWindow = new GameWindow();
-            gameWindow.initInputs();
+            gameWindow.gameScreen.initInputs();
             gameWindow.start();
     
         
