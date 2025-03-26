@@ -1,10 +1,8 @@
 package main;
 
-import java.awt.Menu;
-import javax.swing.JFrame;
-
 import inputs.KeyboardListener;
 import inputs.MyMouseListener;
+import javax.swing.JFrame;
 import scenes.GameMenu;
 import scenes.Playing;
 
@@ -36,7 +34,7 @@ public class GameWindow extends JFrame implements Runnable {
             setLocationRelativeTo(null);
             
             initClasses();
-
+            setResizable(false);
             add(gameScreen);
             pack();
 
@@ -44,10 +42,7 @@ public class GameWindow extends JFrame implements Runnable {
             
             setTitle("Phantom Siege");
             setResizable(false);
-                    
-                    
-                    
-                    
+
          }
             
             
@@ -95,7 +90,8 @@ public class GameWindow extends JFrame implements Runnable {
     
         
         }
-    
+        
+        
         public void run(){
             double timePerFrame = 1000000000.0 / FPS_SET;
             double timePerUpdate = 1000000000.0 / UPS_DATE;
@@ -106,6 +102,7 @@ public class GameWindow extends JFrame implements Runnable {
     
             int frames = 0;
             int updates = 0;
+            
     
             while (true) { 
                 //Render

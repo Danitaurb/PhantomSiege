@@ -1,12 +1,8 @@
 package main;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-//import java.nio.Buffer;
 import java.util.Random;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 
 
@@ -37,8 +33,7 @@ public class GameScreen extends JPanel {
         }
     
     
-    
-    
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         game.getRender().renderGame(g);

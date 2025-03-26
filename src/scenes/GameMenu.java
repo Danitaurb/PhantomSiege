@@ -17,12 +17,10 @@ public class GameMenu extends GameScene implements ScenesMethods {
     private BufferedImage img;
     private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
     private Random random;
-    private GameWindow gameWindow;
+    private GameWindow gameWindow; 
     
         
-        
-            
-        
+
     public GameMenu(GameWindow game){
         super(game);
         random = new Random();
