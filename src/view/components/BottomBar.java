@@ -31,13 +31,14 @@ public class BottomBar {
 
         int w = 50;
         int h = 50;
-        int xStart = x + 700;
-        int yStart = y + 40;
-        int xOffset = (int) (h * 1.1f);
+        int xStart = 1030;
+        int yStart = 50;
+        //int xOffset = (int) (w * 1.1f);
+        int yOffset = (int) (h * 1.2f);
 
         int i = 0;
         for (Tile tile : playing.getTileManager().tiles) {
-            tileButtons.add(new MyButton(tile.getName(), xStart + xOffset * i, yStart, w, h, i));
+            tileButtons.add(new MyButton(tile.getName(), xStart, yStart + (i * yOffset), w, h, tile.getId()));
             i++;
         }
     }
