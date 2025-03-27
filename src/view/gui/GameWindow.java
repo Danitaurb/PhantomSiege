@@ -42,7 +42,7 @@ public class GameWindow extends JFrame implements Runnable {
 
         }
     
-        private void start(){
+        public void start(){
             gameThread = new Thread(this){};
     
             gameThread.start();
@@ -57,21 +57,13 @@ public class GameWindow extends JFrame implements Runnable {
             }
         }
     
-        private void updateGame() {
+        private void incrementUpsCounter() {
             updates++;
-            //System.out.println("Update game!");
+            
         }
     
         public GameScreen getGameScreen() {
             return gameScreen;
-        }
-    
-        public static void main(String[] args) {
-            GameWindow gameWindow = new GameWindow();
-            gameWindow.gameScreen.initInputs();
-            gameWindow.start();
-    
-        
         }
         
         
@@ -98,7 +90,7 @@ public class GameWindow extends JFrame implements Runnable {
                 }   
     
                 if (System.nanoTime() - lastUpdate >= timePerUpdate){
-                    updateGame();
+                    incrementUpsCounter();
                     lastUpdate = System.nanoTime();
                     updates++;
                 }
