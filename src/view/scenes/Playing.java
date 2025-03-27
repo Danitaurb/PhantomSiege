@@ -23,7 +23,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
-        bottomBar = new BottomBar(0, 640, 1050, 100, this);
+        bottomBar = new BottomBar(1000, 1000, 180, 900, this);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
     @Override
     public void mouseClicked(int x, int y) {
-        if (y >= 640) {
+        if (x >= 640) {
             bottomBar.mouseClicked(x, y);
         } else {
             changeTile(mouseX, mouseY);
@@ -82,7 +82,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
     @Override
     public void mouseMoved(int x, int y) {
-        if (y >= 640) {
+        if (x >= 640) {
 			bottomBar.mouseMoved(x, y);
 			drawSelect = false;
 		} else {
@@ -94,7 +94,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
     @Override
     public void mousePressed(int x, int y) {
-        if (y >= 640) {
+        if (x >= 640) {
             bottomBar.mousePressed(x, y);
         }
     }
@@ -106,7 +106,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
     @Override
     public void mouseDragged(int x, int y) {
-		if (y >= 640) {
+		if (x >= 640) {
 
 		} else {
 			changeTile(x, y);
