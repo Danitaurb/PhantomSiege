@@ -18,7 +18,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
-        bottomBar = new BottomBar(0, 0, 0, 0);
+        bottomBar = new BottomBar(0, 640, 1050, 100, this);
     }
 
     @Override
@@ -31,7 +31,12 @@ public class Playing extends GameScene implements ScenesMethods {
                 g.drawImage(tileManager.getSprite(id), x * 32, y * 32, null);
             }
         }
+        bottomBar.draw(g);
         
+    }
+
+    public TileManager getTileManager(){
+        return tileManager;
     }
 
     public void callMe() {
@@ -41,28 +46,27 @@ public class Playing extends GameScene implements ScenesMethods {
 
     @Override
     public void mouseClicked(int x, int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+        if (y >= 640) {
+            bottomBar.mouseClicked(x, y);
+        }
     }
-
+    
     @Override
     public void mouseMoved(int x, int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseMoved'");
+        if (y >= 640) {
+            bottomBar.mouseMoved(x, y);
+        }
     }
 
     @Override
     public void mousePressed(int x, int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        if (y >= 640) {
+            bottomBar.mousePressed(x, y);
+        }
     }
 
     @Override
     public void mouseReleased(int x, int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
-    }
-
-
-
+            bottomBar.mouseReleased(x, y);
+        }
 }
