@@ -1,6 +1,6 @@
-package scenes;
+package view.scenes;
 
-import main.GameWindow;
+import view.gui.GameWindow;
 
 public class GameScene {
     protected GameWindow gameWindow;

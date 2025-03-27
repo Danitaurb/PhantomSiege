@@ -1,4 +1,4 @@
-package managers;
+package model.managers;
 
 public class LevelManager {
 

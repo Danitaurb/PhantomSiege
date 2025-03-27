@@ -1,12 +1,14 @@
-package ui;
+package view.components;
+
+import static view.gui.GameStates.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import static main.GameStates.*;
-import objects.Tile;
-import scenes.Playing;
+
+import model.map.Tile;
+import view.scenes.Playing;
 
 public class BottomBar {
     private int x, y, width, height;

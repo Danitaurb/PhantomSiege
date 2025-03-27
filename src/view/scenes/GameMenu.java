@@ -1,15 +1,17 @@
-package scenes;
+package view.scenes;
+
+import static view.gui.GameStates.*;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
-import static main.GameStates.*;
+
 import javax.imageio.ImageIO;
 
-import main.GameWindow;
-import ui.MyButton;
+import view.components.MyButton;
+import view.gui.GameWindow;
 
 
 public class GameMenu extends GameScene implements ScenesMethods {

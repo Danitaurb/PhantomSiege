@@ -1,12 +1,12 @@
-package inputs;
+package controller;
+
+import static view.gui.GameStates.*;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import static main.GameStates.*;
-
-import main.GameWindow;
-import main.GameStates;
+import view.gui.GameStates;
+import view.gui.GameWindow;
 
 public class KeyboardListener implements KeyListener {
 	private GameWindow game;

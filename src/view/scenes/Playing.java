@@ -1,11 +1,12 @@
-package scenes;
+package view.scenes;
 
-import help.LevelBuild;
 import java.awt.Graphics;
-import main.GameWindow;
-import managers.TileManager;
-import objects.Tile;
-import ui.BottomBar;
+
+import model.levels.LevelBuild;
+import model.managers.TileManager;
+import model.map.Tile;
+import view.components.BottomBar;
+import view.gui.GameWindow;
 
 public class Playing extends GameScene implements ScenesMethods {
 

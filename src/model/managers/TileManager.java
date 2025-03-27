@@ -1,9 +1,10 @@
-package managers;
+package model.managers;
 
-import help.LoadSave;
+import model.map.Tile;
+import model.saves.LoadSave;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import objects.Tile;
 
 public class TileManager {
 

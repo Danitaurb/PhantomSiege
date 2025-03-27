@@ -1,4 +1,4 @@
-package help;
+package model.levels;
 
 public class LevelBuild {
     public static int [][] getLevelData(){

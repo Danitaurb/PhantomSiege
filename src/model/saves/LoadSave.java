@@ -1,4 +1,4 @@
-package help;
+package model.saves;
 
 import java.awt.image.BufferedImage;
 import java.io.InputStream;

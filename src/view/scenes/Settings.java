@@ -1,9 +1,10 @@
-package scenes;
+package view.scenes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import main.GameWindow;
-import ui.MyButton;
+
+import view.components.MyButton;
+import view.gui.GameWindow;
 
 public class Settings extends GameScene implements ScenesMethods {
 

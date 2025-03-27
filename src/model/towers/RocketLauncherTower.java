@@ -1,7 +1,7 @@
 package model.towers;
 
-import managers.GameManager;
 import model.enemies.Enemy;
+import model.managers.GameManager;
 
 public class RocketLauncherTower extends Tower
 {   // Costants

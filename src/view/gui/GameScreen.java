@@ -1,11 +1,12 @@
-package main;
+package view.gui;
 
-import inputs.KeyboardListener;
-import inputs.MyMouseListener;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Random;
 import javax.swing.JPanel;
+
+import controller.KeyboardListener;
+import controller.MyMouseListener;
 
 
 

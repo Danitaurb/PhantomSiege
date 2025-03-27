@@ -1,7 +1,11 @@
-package main;
+package view.scenes;
+
+import static view.gui.GameStates.MENU;
 
 import java.awt.Graphics;
-import static main.GameStates.MENU;
+
+import view.gui.GameStates;
+import view.gui.GameWindow;
 
 public class Render {
     

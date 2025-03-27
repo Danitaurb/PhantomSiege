@@ -1,4 +1,4 @@
-package managers;
+package model.managers;
 
 import model.enemies.Enemy;
 

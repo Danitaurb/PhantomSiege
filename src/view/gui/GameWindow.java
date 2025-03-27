@@ -1,8 +1,10 @@
-package main;
+package view.gui;
 
 import javax.swing.JFrame;
-import scenes.GameMenu;
-import scenes.Playing;
+
+import view.scenes.GameMenu;
+import view.scenes.Playing;
+import view.scenes.Render;
 
 public class GameWindow extends JFrame implements Runnable {
 

@@ -1,4 +1,4 @@
-package scenes;
+package view.scenes;
 
 import java.awt.Graphics;
 
