@@ -3,18 +3,32 @@ package scenes;
 import java.awt.Color;
 import java.awt.Graphics;
 import main.GameWindow;
+import ui.MyButton;
 
 public class Settings extends GameScene implements ScenesMethods {
 
+    private MyButton bMenu;
+
     public Settings(GameWindow game) {
         super(game);
+        initButtons();
     }
+
+    private void initButtons() {
+		bMenu = new MyButton("Menu", 2, 2, 100, 30);
+	}
 
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLUE);
         g.fillRect(0, 0, 640, 640);
+
+        drawButtons(g);
     }
+
+    private void drawButtons(Graphics g) {
+		bMenu.draw(g);
+	}
 
     @Override
     public void mouseClicked(int x, int y) {
@@ -38,4 +52,11 @@ public class Settings extends GameScene implements ScenesMethods {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
     }
+
+    @Override
+	public void mouseDragged(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

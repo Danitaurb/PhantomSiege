@@ -17,7 +17,6 @@ public class GameMenu extends GameScene implements ScenesMethods {
 
     private BufferedImage img;
     private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
-    private Random random;
     private GameWindow gameWindow; 
 
     private MyButton bPlaying, bSettings, bQuit;
@@ -25,16 +24,21 @@ public class GameMenu extends GameScene implements ScenesMethods {
 
     public GameMenu(GameWindow game){
         super(game);
-        random = new Random();
         importImg();    
         loadSprites();
         initButtons();
     }
             
     private void initButtons() {
-        bPlaying = new MyButton("Play", 100, 100, 100, 30);
-        bSettings = new MyButton("Settings", 100, 150, 100, 30);
-        bQuit = new MyButton("Quit", 100, 200, 100, 30);
+        int w = 150;
+		int h = w / 3;
+		int x = 640 / 2 - w / 2;
+		int y = 150;
+		int yOffset = 100;
+
+		bPlaying = new MyButton("Play", x, y, w, h);
+		bSettings = new MyButton("Settings", x, y + yOffset, w, h);
+		bQuit = new MyButton("Quit", x, y + yOffset * 2, w, h);
     }
         
     @Override
@@ -48,10 +52,6 @@ public class GameMenu extends GameScene implements ScenesMethods {
         bQuit.draw(g);
     }
         
-    public void callMe() {
-        // TODO Auto-generated method stub
-
-    }
 
      private void loadSprites()
     {
@@ -72,55 +72,41 @@ public class GameMenu extends GameScene implements ScenesMethods {
         
     }
 
-    private int getRndInt()
-    {
-        return random.nextInt(399);
-    }
-
     @Override
     public void mouseClicked(int x, int y) {
         if (bPlaying.getBounds().contains(x, y)) {
-            SetGameState(PLAYING);
-        }
-
-        if (bSettings.getBounds().contains(x, y)) {
-            SetGameState(SETTINGS);
-        }
-
-        if (bQuit.getBounds().contains(x, y)) {
-            System.exit(0);
-        }
+			SetGameState(PLAYING);
+		} else if (bSettings.getBounds().contains(x, y)) {
+			SetGameState(SETTINGS);
+		} else if (bQuit.getBounds().contains(x, y))
+			System.exit(0);
     }
 
     @Override
     public void mouseMoved(int x, int y) {
-        if (bPlaying.getBounds().contains(x, y)) {
-            bPlaying.setMouseOver(true);
-        } 
+		bPlaying.setMouseOver(false);
+		bSettings.setMouseOver(false);
+		bQuit.setMouseOver(false);
 
-        if (bSettings.getBounds().contains(x, y)) {
-            bSettings.setMouseOver(true);
-        }
+		if (bPlaying.getBounds().contains(x, y)) {
+			bPlaying.setMouseOver(true);
+		} else if (bSettings.getBounds().contains(x, y)) {
+			bSettings.setMouseOver(true);
+		} else if (bQuit.getBounds().contains(x, y)) {
+			bQuit.setMouseOver(true);
+		}
+	}
 
-        if (bQuit.getBounds().contains(x, y)) {
-            bQuit.setMouseOver(true);
-        }
-    }
-
-    @Override
-    public void mousePressed(int x, int y) {
-        if (bPlaying.getBounds().contains(x, y)) {
-            bPlaying.setMousePressed(true);
-        } 
-
-        if (bSettings.getBounds().contains(x, y)) {
-            bSettings.setMousePressed(true);
-        }
-
-        if (bQuit.getBounds().contains(x, y)) {
-            bQuit.setMousePressed(true);
-        }
-    }
+	@Override
+	public void mousePressed(int x, int y) {
+		if (bPlaying.getBounds().contains(x, y)) {
+			bPlaying.setMousePressed(true);
+		} else if (bSettings.getBounds().contains(x, y)) {
+			bSettings.setMousePressed(true);
+		} else if (bQuit.getBounds().contains(x, y)) {
+			bQuit.setMousePressed(true);
+		}
+	}
 
     @Override
     public void mouseReleased(int x, int y) {
@@ -128,12 +114,14 @@ public class GameMenu extends GameScene implements ScenesMethods {
     }
        
     private void resetButtons() {
-        bPlaying.setMousePressed(false);
-
-        bSettings.setMousePressed(false);
-
-        bQuit.setMousePressed(false);
+        bPlaying.resetBooleans();
+        bSettings.resetBooleans();
+        bQuit.resetBooleans();
     }
 
-
+    @Override
+	public void mouseDragged(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
 }
