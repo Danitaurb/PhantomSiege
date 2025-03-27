@@ -33,6 +33,8 @@ public class GameMenu extends GameScene implements ScenesMethods {
             
     private void initButtons() {
         bPlaying = new MyButton("Play", 100, 100, 100, 30);
+        bSettings = new MyButton("Settings", 100, 150, 100, 30);
+        bQuit = new MyButton("Quit", 100, 200, 100, 30);
     }
         
     @Override
@@ -42,6 +44,8 @@ public class GameMenu extends GameScene implements ScenesMethods {
                
     private void drawButtons(Graphics g) {
         bPlaying.draw(g);
+        bSettings.draw(g);
+        bQuit.draw(g);
     }
         
     public void callMe() {
@@ -78,6 +82,14 @@ public class GameMenu extends GameScene implements ScenesMethods {
         if (bPlaying.getBounds().contains(x, y)) {
             SetGameState(PLAYING);
         }
+
+        if (bSettings.getBounds().contains(x, y)) {
+            SetGameState(SETTINGS);
+        }
+
+        if (bQuit.getBounds().contains(x, y)) {
+            System.exit(0);
+        }
     }
 
     @Override
@@ -85,6 +97,14 @@ public class GameMenu extends GameScene implements ScenesMethods {
         if (bPlaying.getBounds().contains(x, y)) {
             bPlaying.setMouseOver(true);
         } 
+
+        if (bSettings.getBounds().contains(x, y)) {
+            bSettings.setMouseOver(true);
+        }
+
+        if (bQuit.getBounds().contains(x, y)) {
+            bQuit.setMouseOver(true);
+        }
     }
 
     @Override
@@ -92,6 +112,14 @@ public class GameMenu extends GameScene implements ScenesMethods {
         if (bPlaying.getBounds().contains(x, y)) {
             bPlaying.setMousePressed(true);
         } 
+
+        if (bSettings.getBounds().contains(x, y)) {
+            bSettings.setMousePressed(true);
+        }
+
+        if (bQuit.getBounds().contains(x, y)) {
+            bQuit.setMousePressed(true);
+        }
     }
 
     @Override
@@ -101,6 +129,10 @@ public class GameMenu extends GameScene implements ScenesMethods {
        
     private void resetButtons() {
         bPlaying.setMousePressed(false);
+
+        bSettings.setMousePressed(false);
+
+        bQuit.setMousePressed(false);
     }
 
 
