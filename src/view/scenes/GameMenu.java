@@ -34,8 +34,8 @@ public class GameMenu extends GameScene implements ScenesMethods {
     private void initButtons() {
         int w = 150;
 		int h = w / 3;
-		int x = 640 / 2 - w / 2;
-		int y = 150;
+		int x = 1100 / 2 - w / 2;
+		int y = 200;
 		int yOffset = 100;
 
 		bPlaying = new MyButton("Play", x, y, w, h);

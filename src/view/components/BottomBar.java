@@ -12,12 +12,13 @@ public class BottomBar {
     private int x, y, width, height;
     private Playing playing;
     private MyButton bMenu;
+
     private Tile selectedTile;
 
     private ArrayList<MyButton> tileButtons = new ArrayList<>();
 
     public BottomBar(int x, int y, int width, int height, Playing playing) {
-        this.x = 1150 - width; 
+        this.x = 1180 - width; 
         this.y = 0;          
         this.width = width;
         this.height = height;
@@ -27,13 +28,12 @@ public class BottomBar {
     }
 
     private void initButtons() {
-        bMenu = new MyButton("Menu", 1010, 2, 90, 30);
+        bMenu = new MyButton("Menu", 1027, 4, 90, 30);
 
         int w = 50;
         int h = 50;
-        int xStart = 1030;
+        int xStart = 1048;
         int yStart = 50;
-        //int xOffset = (int) (w * 1.1f);
         int yOffset = (int) (h * 1.2f);
 
         int i = 0;
@@ -134,8 +134,8 @@ public class BottomBar {
         } else {
             for (MyButton b : tileButtons) {
                 if (b.getBounds().contains(x, y)) {
-                b.setMousePressed(true);
-                return;
+                    b.setMousePressed(true);
+                    return;
                 }
             }
         }
