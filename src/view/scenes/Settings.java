@@ -2,7 +2,6 @@ package view.scenes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import view.components.MyButton;
 import view.gui.GameWindow;
 

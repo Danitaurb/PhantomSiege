@@ -1,12 +1,11 @@
 package view.gui;
 
+import controller.KeyboardListener;
+import controller.MyMouseListener;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Random;
 import javax.swing.JPanel;
-
-import controller.KeyboardListener;
-import controller.MyMouseListener;
 
 
 
@@ -16,8 +15,8 @@ public class GameScreen extends JPanel {
     private GameWindow game;
     private Dimension size;
     
-    private final int PANEL_WIDTH = 1024;
-    private final int PANEL_HEIGHT = 740;
+    private final int PANEL_WIDTH = 1124;
+    private final int PANEL_HEIGHT = 640;
 
     private MyMouseListener myMouseListener;
     private KeyboardListener keyboardListener;
@@ -41,7 +40,7 @@ public class GameScreen extends JPanel {
     }
     
     public void setPanelSize(){
-            setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
     }
     
     

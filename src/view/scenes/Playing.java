@@ -1,7 +1,6 @@
 package view.scenes;
 
 import java.awt.Graphics;
-
 import model.levels.LevelBuild;
 import model.managers.TileManager;
 import model.map.Tile;
@@ -23,7 +22,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
-        bottomBar = new BottomBar(1000, 1000, 180, 900, this);
+        bottomBar = new BottomBar(0, 660, 160, 900, this);
     }
 
     @Override
