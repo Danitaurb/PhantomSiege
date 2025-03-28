@@ -1,5 +1,7 @@
 package model.enemies;
 
+import java.awt.Rectangle;
+
 public abstract class Enemy 
 {   
 	// Fields
@@ -7,25 +9,27 @@ public abstract class Enemy
     private double speed;
     private int reward;
     private int damage;
-    private int x;
-    private int y;
-    
+    private float x;
+    private float y;
+    private Rectangle hitbox;
+
     // Constructor
-	public Enemy(double health, double speed, int reward, int damage, int x, int y) {
+	public Enemy(double health, double speed, int reward, int damage, float x, float y) {
 		this.health = health;
 		this.speed = speed;
 		this.reward = reward;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
+        this.hitbox = new Rectangle((int)x, (int)y, 32, 32); // Example hitbox size
 	}
 
 	// Getters and Setters
-    public int getX(){
+    public float getX(){
         return x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
     

@@ -12,8 +12,8 @@ public class RocketLauncherTower extends Tower
     
     // Fields
     private int explosionArea; // Area of the explosion of the rocket
-    private int targetX;
-    private int targetY;
+    private float targetX;
+    private float targetY;
 
     // Constructor
     public RocketLauncherTower(int x, int y, int id) 
@@ -59,9 +59,9 @@ public class RocketLauncherTower extends Tower
         }
     }
 
-    private boolean isInExplosionArea(Enemy enemy, int centerX, int centerY, int explosionArea) {
-        int enemyX = enemy.getX();
-        int enemyY = enemy.getY();
+    private boolean isInExplosionArea(Enemy enemy, float centerX, float centerY, int explosionArea) {
+        float enemyX = enemy.getX();
+        float enemyY = enemy.getY();
     
         // Calculate the Euclidean distance between the enemy and the explosion center
         double distance = Math.sqrt(Math.pow(enemyX - centerX, 2) + Math.pow(enemyY - centerY, 2));
