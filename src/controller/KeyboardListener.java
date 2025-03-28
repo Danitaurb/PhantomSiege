@@ -1,11 +1,11 @@
 package controller;
 
-import static view.gui.GameStates.*;
+import static view.gui.GamePhase.*;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import view.gui.GameStates;
+import view.gui.GamePhase;
 import view.gui.GameWindow;
 
 public class KeyboardListener implements KeyListener {
@@ -23,11 +23,11 @@ public class KeyboardListener implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 	   if(e.getKeyCode() == KeyEvent.VK_Q) {
-		   GameStates.gameState = MENU;
+		   GamePhase.gameState = MENU;
 	       System.out.println("Menu");
 	     }
 		else if(e.getKeyCode() == KeyEvent.VK_W){
-			GameStates.gameState = PLAYING;
+			GamePhase.gameState = PLAYING;
 		}
 
 

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import model.map.Tile;
-import static view.gui.GameStates.*;
+import static view.gui.GamePhase.*;
 import view.scenes.Playing;
 
 public class BottomBar {

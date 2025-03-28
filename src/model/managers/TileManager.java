@@ -2,8 +2,9 @@ package model.managers;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import model.ImageLoader;
 import model.map.Tile;
-import model.saves.LoadSave;
 
 public class TileManager {
 
@@ -55,7 +56,7 @@ public class TileManager {
     }
 
     private void loadAtlas() {
-        atlas = LoadSave.getSpriteAtlas();
+        atlas = ImageLoader.getSpriteAtlas();
     }
 
     public Tile getTile(int id) {

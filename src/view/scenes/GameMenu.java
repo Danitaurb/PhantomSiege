@@ -1,6 +1,6 @@
 package view.scenes;
 
-import static view.gui.GameStates.*;
+import static view.gui.GamePhase.*;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

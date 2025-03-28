@@ -5,7 +5,7 @@ import java.util.List;
 import model.enemies.Enemy;
 import model.towers.Tower;
 
-public class GameState {
+public class GameState implements java.io.Serializable {
     
 
     private int coins;
@@ -27,8 +27,8 @@ public class GameState {
         this.currentLevel = currentLevel;
     }
 
-
     
+    // Getters and Setters
     public int getCoins() {
         return coins;
     }

@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import view.gui.GameStates;
+import view.gui.GamePhase;
 import view.gui.GameWindow;
 
 public class MyMouseListener implements MouseListener, MouseMotionListener {
@@ -21,7 +21,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
     }
     
     public void mouseMoved(MouseEvent e) {
-        switch (GameStates.gameState)
+        switch (GamePhase.gameState)
         {
             case MENU:
                 game.getMenu().mouseMoved(e.getX(), e.getY());
@@ -37,7 +37,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     public void mouseClicked(MouseEvent e) {
        if (e.getButton() == MouseEvent.BUTTON1) {
-        switch (GameStates.gameState)
+        switch (GamePhase.gameState)
         {
             case MENU:
                 game.getMenu().mouseClicked(e.getX(), e.getY());
@@ -54,7 +54,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        switch (GameStates.gameState)
+        switch (GamePhase.gameState)
         {
             case MENU:
                 game.getMenu().mousePressed(e.getX(), e.getY());
@@ -69,7 +69,7 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
        }
 
     public void mouseReleased(MouseEvent e) {
-        switch (GameStates.gameState)
+        switch (GamePhase.gameState)
         {
             case MENU:
                 game.getMenu().mouseReleased(e.getX(), e.getY());
