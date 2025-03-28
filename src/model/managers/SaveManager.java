@@ -1,5 +1,6 @@
 package model.managers;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -20,21 +21,18 @@ public class SaveManager {
             outputStream.writeObject(gameState);
             System.out.println("Game saved successfully to " + fileName);
         } catch (IOException e) {
-            System.err.println("Error saving game: " + e.getMessage());
+            System.out.println("Error saving game: " + e.getMessage());
         }
     }
-        
 
-        
 
-    
-    
-    /* 
-    public void saveGame( GameState gameState) {
-        saveGame(gameState, "save1");
+    public void saveGame(GameState gameState) {
+        ensureSaveDirectoryExists();
+        String fileName = generateFileName(gameState);
+        saveGame(gameState, fileName);
     }
+        
 
-    */
 
     public void loadGame() {
 
@@ -46,7 +44,18 @@ public class SaveManager {
             directory.mkdirs();
         }
     }
+  
+     private String generateFileName(GameState gameState) {
+        int fileCount;
 
+        File directory = new File(SAVE_DIRECTORY);
+        if (!directory.exists()) {
+            fileCount = 0;
+        } else {
+            fileCount = directory.list().length;
+        }
+        return "save_" + (fileCount + 1); 
+    }
     
 
 
