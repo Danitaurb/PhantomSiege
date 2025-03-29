@@ -34,7 +34,16 @@ public class SaveManager {
         
 
 
-    public void loadGame() {
+    public void loadGame(String fileName) {
+        if (!checkFileExists(fileName)) {
+            System.out.println("File not found: " + fileName);
+            return;
+        }
+        // Load game logic 
+        System.out.println("Loading game from " + fileName);
+
+        
+        
 
 
     }
@@ -43,6 +52,15 @@ public class SaveManager {
         if (!directory.exists()) {
             directory.mkdirs();
         }
+    }
+
+    private boolean checkFileExists(String fileName) {
+        java.io.File file = new java.io.File(SAVE_DIRECTORY + fileName);
+        if (!file.exists()) {
+            System.out.println("File does not exist: " + fileName);
+            return false;
+        }
+        return true;
     }
   
      private String generateFileName(GameState gameState) {
