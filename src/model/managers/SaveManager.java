@@ -1,8 +1,10 @@
 package model.managers;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import model.saves.GameState;
@@ -34,17 +36,35 @@ public class SaveManager {
         
 
 
-    public void loadGame(String fileName) {
+    public GameState loadGame(String fileName) {
+        if (!checkFileExists(fileName)) {
+            System.out.println("File not found: " + fileName);
+            return null ;
+        }
+        // Load game logic 
+        System.out.println("Loading game from " + fileName);
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(SAVE_DIRECTORY + fileName))) {
+            GameState gameState = (GameState) inputStream.readObject();
+            System.out.println("Game loaded successfully from " + fileName);
+            return gameState;
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading game: " + e.getMessage());
+            return null;
+        }
+    }
+
+       
+    public void deleteGame(String fileName) {
         if (!checkFileExists(fileName)) {
             System.out.println("File not found: " + fileName);
             return;
         }
-        // Load game logic 
-        System.out.println("Loading game from " + fileName);
-
-        
-        
-
+        java.io.File file = new java.io.File(SAVE_DIRECTORY + fileName);
+        if (file.delete()) {
+            System.out.println("Game deleted successfully: " + fileName);
+        } else {
+            System.out.println("Error deleting game: " + fileName);
+        }
 
     }
     private void ensureSaveDirectoryExists() {
