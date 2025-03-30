@@ -9,10 +9,10 @@ import view.gui.GameWindow;
 
 public class Render {
     
-    private GameWindow game;
+    private GameWindow gameWindow;
     
-        public Render(GameWindow game) {
-            this.game = game;
+        public Render(GameWindow gameWindow) {
+            this.gameWindow = gameWindow;
             
     }
 
@@ -20,10 +20,10 @@ public class Render {
         switch (GamePhase.gameState) {
 
             case MENU:
-             game.getMenu().render(g);
+             gameWindow.getMenu().render(g);
                 break;
             case PLAYING:
-            game.getPlaying().render(g);
+            gameWindow.getPlaying().render(g);
 
                 break;
             case SETTINGS:

@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 public class GameScreen extends JPanel {
     
     private Random random;
-    private GameWindow game;
+    private GameWindow gameWindow;
     private Dimension size;
     
     private final int PANEL_WIDTH = 1124;
@@ -21,16 +21,16 @@ public class GameScreen extends JPanel {
     private MyMouseListener myMouseListener;
     private KeyboardListener keyboardListener;
 
-    public GameScreen(GameWindow game) 
+    public GameScreen(GameWindow gameWindow) 
     {   
-        this.game = game;
+        this.gameWindow = gameWindow;
         setPanelSize();
         random = new Random();
     }
     
     public void initInputs(){
-        myMouseListener = new MyMouseListener(game);
-        keyboardListener = new KeyboardListener(game);
+        myMouseListener = new MyMouseListener(gameWindow);
+        keyboardListener = new KeyboardListener(gameWindow);
         addMouseListener(myMouseListener);
         addMouseMotionListener(myMouseListener);
         addKeyListener(keyboardListener);
@@ -47,7 +47,7 @@ public class GameScreen extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        game.getRender().renderGame(g);
+        gameWindow.getRender().renderGame(g);
 
 //      g.drawImage(sprites.get(103), 0, 0, null);
 //      g.drawImage(img.getSubimage(32*0, 32*10, 32, 32), 32, 0, null);

@@ -24,9 +24,9 @@ public class GameMenu extends GameScene implements ScenesMethods {
     private MyButton bPlaying, bSettings, bQuit;
 
 
-    public GameMenu(GameWindow game){
-        super(game);
-        importImg();    
+    public GameMenu(GameWindow gameWindow){
+        super(gameWindow);
+        importImg();
         loadSprites();
         initButtons();
     }
