@@ -9,17 +9,19 @@ public abstract class Enemy
     private double speed;
     private int reward;
     private int damage;
+    private int id;
     private float x;
     private float y;
     private Rectangle hitbox;
     private GhostType type;
 
     // Constructor
-	public Enemy(double health, double speed, int reward, int damage, float x, float y, GhostType type) {
+	public Enemy(double health, double speed, int reward, int damage, int id, float x, float y, GhostType type) {
 		this.health = health;
 		this.speed = speed;
 		this.reward = reward;
 		this.damage = damage;
+        this.id = id;
 		this.x = x;
 		this.y = y;
         this.type = type;

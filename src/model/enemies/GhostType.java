@@ -42,6 +42,10 @@ public enum GhostType
 		return damage;
 	}
 
+	public int getId() {
+		return this.ordinal();
+	}
+	
 	public GhostType getGhostType() {
 		return ghostType;
 	}
