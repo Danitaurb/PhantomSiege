@@ -1,24 +1,12 @@
 package model.managers;
 
-import model.enemies.BlueGhost;
-import model.enemies.Enemy;
-import model.enemies.GreenGhost;
-import model.enemies.OrangeGhost;
-import model.enemies.RedGhost;
-import model.enemies.TransparentGhost;
-import model.enemies.WhiteGhost;
+import model.enemies.*;
 import view.scenes.Playing;
 
 public class EnemyManager 
 {   // Fields
     private Playing playing;
-    private WhiteGhost whiteGhost;
-    private GreenGhost greenGhost;
-    private OrangeGhost orangeGhost;
-    private RedGhost redGhost;
-    private BlueGhost blueGhost;
-    private TransparentGhost transparentGhost;
-
+    private BasicGhost whiteGhost;
 
     public EnemyManager(Playing playing) 
     {

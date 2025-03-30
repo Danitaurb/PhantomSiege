@@ -12,15 +12,17 @@ public abstract class Enemy
     private float x;
     private float y;
     private Rectangle hitbox;
+    private GhostType type;
 
     // Constructor
-	public Enemy(double health, double speed, int reward, int damage, float x, float y) {
+	public Enemy(double health, double speed, int reward, int damage, float x, float y, GhostType type) {
 		this.health = health;
 		this.speed = speed;
 		this.reward = reward;
 		this.damage = damage;
 		this.x = x;
 		this.y = y;
+        this.type = type;
         this.hitbox = new Rectangle((int)x, (int)y, 32, 32); // Example hitbox size
 	}
 
