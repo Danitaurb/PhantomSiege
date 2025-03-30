@@ -29,22 +29,16 @@ public class GameWindow extends JFrame implements Runnable {
         {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
-            
             initClasses();
             setResizable(false);
             add(gameScreen);
             pack();
-
             setVisible(true);  
-            
             setTitle("Phantom Siege");
-            setResizable(false);
-
         }
     
         public void start(){
             gameThread = new Thread(this){};
-    
             gameThread.start();
         }
     
@@ -125,7 +119,4 @@ public class GameWindow extends JFrame implements Runnable {
                 return playing;
             }
 
-
-    
-            
 }
