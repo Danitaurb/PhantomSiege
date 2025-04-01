@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 
@@ -76,6 +77,37 @@ public class ImageLoader {
             sc.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        
+    }
+
+    private static ArrayList<Integer> ReadFromFile(File file) {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        try {
+            Scanner sc = new Scanner(file);  
+            
+            while (sc.hasNextLine()) {
+                list.add(Integer.parseInt(sc.nextLine()));
+            }
+            sc.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+
+    public static int[][] GetLevelData(String name) {
+        File lvlFile = new File("src/assets/" + name + ".txt");
+
+        if (lvlFile.exists()) {
+            ArrayList<Integer> list = ReadFromFile(lvlFile);
+            return Utils.ArrayListTo2Dint(list, 20, 20);
+            
+        } else {
+            System.out.println("File" + name + " does not exist!");
+            return null;
         }
         
     }

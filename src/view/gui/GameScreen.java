@@ -5,7 +5,6 @@ import controller.MyMouseListener;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 

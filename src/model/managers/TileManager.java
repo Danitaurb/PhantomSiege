@@ -12,7 +12,6 @@ public class TileManager {
     public Tile FLOWER_1, FLOWER_2, FLOWER_3;
     public Tile TRUNK;
     public Tile ROCK_1, ROCK_2, ROCK_3, ROCK_4;
-
     public Tile  WATER, ROAD;
     public BufferedImage atlas;
     public ArrayList<Tile> tiles = new ArrayList<>();

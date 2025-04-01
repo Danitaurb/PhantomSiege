@@ -30,6 +30,11 @@ public class Playing extends GameScene implements ScenesMethods {
         //ImageLoader.ReadFromFile();
 
         createDefaultLevel();
+        loadDefaultLevel();
+    }
+
+    private void loadDefaultLevel() {
+        lvl = ImageLoader.GetLevelData("new_level");
     }
 
     private void createDefaultLevel() {
@@ -37,7 +42,7 @@ public class Playing extends GameScene implements ScenesMethods {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 0;
         }
-        
+
         ImageLoader.CreateLevel("new_level", arr);
     }
 
