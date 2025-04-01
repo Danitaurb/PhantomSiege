@@ -1,6 +1,7 @@
 package view.scenes;
 
 import java.awt.Graphics;
+import model.ImageLoader;
 import model.levels.LevelBuild;
 import model.managers.TileManager;
 import model.map.Tile;
@@ -23,6 +24,21 @@ public class Playing extends GameScene implements ScenesMethods {
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
         sideBar = new SideBar(1024, 0, 156, 640, this);
+
+        //ImageLoader.CreateFile();
+        //ImageLoader.WriteToFile();
+        //ImageLoader.ReadFromFile();
+
+        createDefaultLevel();
+    }
+
+    private void createDefaultLevel() {
+        int[] arr = new int[400];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = 0;
+        }
+        
+        ImageLoader.CreateLevel("new_level", arr);
     }
 
     @Override
