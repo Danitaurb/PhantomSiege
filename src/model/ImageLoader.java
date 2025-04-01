@@ -65,6 +65,17 @@ public class ImageLoader {
         
     }
 
+    public static void SaveLevel(String name, int[][] idArr) {
+        File levelFile = new File("src/assets/" + name + ".txt");
+
+        if (levelFile.exists()) {
+            WriteToFile(levelFile, Utils.TwoDintTo1D(idArr));
+        } else {
+            System.out.println("File does not exist!");
+            return;
+        }
+    }
+
     public static void ReadFromFile(){
         File txtFile = new File("src/assets/text.txt");
 

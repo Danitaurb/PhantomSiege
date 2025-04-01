@@ -123,8 +123,7 @@ public class SideBar {
     }
 
     private void saveLevel() {
-        // Implement save level logic here
-        System.out.println("Save Level");
+        playing.saveLevel();
     }
 
     public void mouseMoved(int x, int y) {

@@ -33,6 +33,10 @@ public class Playing extends GameScene implements ScenesMethods {
         loadDefaultLevel();
     }
 
+    public void saveLevel(){
+        ImageLoader.SaveLevel("new_level", lvl);
+    }
+
     private void loadDefaultLevel() {
         lvl = ImageLoader.GetLevelData("new_level");
     }
