@@ -17,7 +17,7 @@ public class GameScreen extends JPanel {
     private GameWindow gameWindow;
     private Dimension size;
     
-    private final int PANEL_WIDTH = 1124;
+    private final int PANEL_WIDTH = 1138;
     private final int PANEL_HEIGHT = 640;
 
     private MyMouseListener myMouseListener;

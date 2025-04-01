@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import model.levels.LevelBuild;
 import model.managers.TileManager;
 import model.map.Tile;
-import view.components.BottomBar;
+import view.components.SideBar;
 import view.gui.GameWindow;
 
 public class Playing extends GameScene implements ScenesMethods {
@@ -12,7 +12,7 @@ public class Playing extends GameScene implements ScenesMethods {
     private int[][] lvl;
     private TileManager tileManager;
     private Tile selectedTile;
-    private BottomBar bottomBar;
+    private SideBar sideBar;
     private int mouseX, mouseY;
     private int lastTileX, lastTileY, lastTileId;
     private boolean drawSelect;
@@ -22,7 +22,7 @@ public class Playing extends GameScene implements ScenesMethods {
 
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
-        bottomBar = new BottomBar(0, 660, 160, 900, this);
+        sideBar = new SideBar(1024, 0, 156, 640, this);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Playing extends GameScene implements ScenesMethods {
                 g.drawImage(tileManager.getSprite(id), x * 32, y * 32, null);
             }
         }
-        bottomBar.draw(g);
+        sideBar.draw(g);
         drawSelectedTile(g);
         
     }
@@ -56,7 +56,7 @@ public class Playing extends GameScene implements ScenesMethods {
     @Override
     public void mouseClicked(int x, int y) {
         if (x >= 640) {
-            bottomBar.mouseClicked(x, y);
+            sideBar.mouseClicked(x, y);
         } else {
             changeTile(mouseX, mouseY);
         }   
@@ -82,7 +82,7 @@ public class Playing extends GameScene implements ScenesMethods {
     @Override
     public void mouseMoved(int x, int y) {
         if (x >= 640) {
-			bottomBar.mouseMoved(x, y);
+			sideBar.mouseMoved(x, y);
 			drawSelect = false;
 		} else {
 			drawSelect = true;
@@ -94,13 +94,13 @@ public class Playing extends GameScene implements ScenesMethods {
     @Override
     public void mousePressed(int x, int y) {
         if (x >= 640) {
-            bottomBar.mousePressed(x, y);
+            sideBar.mousePressed(x, y);
         }
     }
 
     @Override
     public void mouseReleased(int x, int y) {
-            bottomBar.mouseReleased(x, y);
+            sideBar.mouseReleased(x, y);
     }
 
     @Override
