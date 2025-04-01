@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import view.scenes.GameMenu;
 import view.scenes.Playing;
 import view.scenes.Render;
+import view.scenes.Settings;
 
 public class GameWindow extends JFrame implements Runnable {
 
@@ -21,6 +22,7 @@ public class GameWindow extends JFrame implements Runnable {
         private Render render;
         private GameMenu menu;
         private Playing playing;
+        private Settings settings;
     
     
     
@@ -102,6 +104,7 @@ public class GameWindow extends JFrame implements Runnable {
              gameScreen = new GameScreen(this);
              menu = new GameMenu(this);
              playing = new Playing(this);
+             settings = new Settings(this);
  
             }
            
@@ -116,6 +119,10 @@ public class GameWindow extends JFrame implements Runnable {
 
             public Playing getPlaying() {
                 return playing;
+            }
+
+            public Settings getSettings() {
+                return settings;
             }
 
 }
