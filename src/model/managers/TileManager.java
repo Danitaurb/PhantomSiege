@@ -2,7 +2,6 @@ package model.managers;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
 import model.ImageLoader;
 import model.map.Tile;
 

@@ -1,7 +1,6 @@
 package view.gui;
 
 import javax.swing.JFrame;
-
 import view.scenes.GameMenu;
 import view.scenes.Playing;
 import view.scenes.Render;

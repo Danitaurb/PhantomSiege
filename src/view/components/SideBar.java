@@ -6,8 +6,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import model.map.Tile;
 import static view.gui.GamePhase.*;
-
-import view.gui.GamePhase;
 import view.scenes.Playing;
 
 public class SideBar {
@@ -62,7 +60,7 @@ public class SideBar {
 
     private void drawSelectedTile(Graphics g) {
         if (selectedTile != null) {
-            g.drawImage(selectedTile.getSprite(), 900, 8, 50, 50, null);
+            g.drawImage(selectedTile.getSprite(), 1048, 470, 50, 50, null);
             g.setColor(Color.black);
             g.drawRect(550, 650, 50, 50);
         }
