@@ -42,8 +42,8 @@ public class SideBar {
 
         int w = 50;
         int h = 50;
-        int xStart = 1048;
-        int yStart = 50;
+        int xStart = 1056;
+        int yStart = 150;
         int yOffset = (int) (h * 1.2f);
 
         int i = 0;
@@ -62,7 +62,7 @@ public class SideBar {
 
     private void drawSelectedTile(Graphics g) {
         if (selectedTile != null) {
-            g.drawImage(selectedTile.getSprite(), 1060, 100, 50, 50, null);
+            g.drawImage(selectedTile.getSprite(), 1056, 90, 50, 50, null);
             g.setColor(Color.black);
             g.drawRect(550, 650, 50, 50);
         }

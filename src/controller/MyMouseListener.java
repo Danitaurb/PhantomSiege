@@ -26,6 +26,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 		case SETTINGS:
 			gameWindow.getSettings().mouseDragged(e.getX(), e.getY());
 			break;
+		case EDIT:
+			gameWindow.getEditor().mouseDragged(e.getX(), e.getY());
+			break;
 		default:
 			break;
 		}
@@ -43,6 +46,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 			break;
 		case SETTINGS:
 			gameWindow.getSettings().mouseMoved(e.getX(), e.getY());
+			break;
+		case EDIT:
+			gameWindow.getEditor().mouseMoved(e.getX(), e.getY());
 			break;
 		default:
 			break;
@@ -65,6 +71,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 			case SETTINGS:
 				gameWindow.getSettings().mouseClicked(e.getX(), e.getY());
 				break;
+			case EDIT:
+				gameWindow.getEditor().mouseClicked(e.getX(), e.getY());
+				break;
 			default:
 				break;
 
@@ -85,6 +94,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 		case SETTINGS:
 			gameWindow.getSettings().mousePressed(e.getX(), e.getY());
 			break;
+		case EDIT:
+			gameWindow.getEditor().mousePressed(e.getX(), e.getY());
+			break;
 		default:
 			break;
 
@@ -103,6 +115,9 @@ public class MyMouseListener implements MouseListener, MouseMotionListener {
 			break;
 		case SETTINGS:
 			gameWindow.getSettings().mouseReleased(e.getX(), e.getY());
+			break;
+		case EDIT:
+			gameWindow.getEditor().mouseReleased(e.getX(), e.getY());
 			break;
 		default:
 			break;

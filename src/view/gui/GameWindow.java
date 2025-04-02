@@ -1,6 +1,7 @@
 package view.gui;
 
 import javax.swing.JFrame;
+import view.scenes.Editing;
 import view.scenes.GameMenu;
 import view.scenes.Playing;
 import view.scenes.Render;
@@ -23,11 +24,9 @@ public class GameWindow extends JFrame implements Runnable {
         private GameMenu menu;
         private Playing playing;
         private Settings settings;
-    
-    
-    
-        public GameWindow() 
-        {
+        private Editing editing;
+
+        public GameWindow() {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLocationRelativeTo(null);
             initClasses();
@@ -105,6 +104,7 @@ public class GameWindow extends JFrame implements Runnable {
              menu = new GameMenu(this);
              playing = new Playing(this);
              settings = new Settings(this);
+             editing = new Editing(this);   
  
             }
            
@@ -123,6 +123,10 @@ public class GameWindow extends JFrame implements Runnable {
 
             public Settings getSettings() {
                 return settings;
+            }
+
+            public Editing getEditor() {
+                return editing;
             }
 
 }
