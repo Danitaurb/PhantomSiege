@@ -47,8 +47,8 @@ public class ImageLoader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            WriteToFile(newLevel, idArr);
         }
-        WriteToFile(newLevel, idArr);
 
     }
 

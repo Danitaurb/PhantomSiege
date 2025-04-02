@@ -11,23 +11,19 @@ import view.scenes.Settings;
 
 public class GameWindow extends JFrame implements Runnable {
 
-    private static final long serialVersionUID = 1L;
-    private GameScreen gameScreen = null;
+    private GameScreen gameScreen;
     
-        private int updates;
-        private long lastTimeUPS;
-        private Thread gameThread;
-    
+    private Thread gameThread;
         
-        private final double FPS_SET = 120;
-        private final double UPS_DATE = 60;    
+    private final double FPS_SET = 120.0;
+    private final double UPS_DATE = 60.0;    
     
-        private Render render;
-        private GameMenu menu;
-        private Playing playing;
-        private Settings settings;
-        private Editing editing;
-        private TileManager tileManager;
+    private Render render;
+    private GameMenu menu;
+    private Playing playing;
+    private Settings settings;
+    private Editing editing;
+    private TileManager tileManager;
 
         public GameWindow() {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,6 +37,15 @@ public class GameWindow extends JFrame implements Runnable {
             setTitle("Phantom Siege");
         }
     
+        private void createDefaultLevel() {
+            int[] arr = new int[400];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = 0;
+            }
+    
+            ImageLoader.CreateLevel("new_level", arr);
+        }
+
         private void initClasses() {
             tileManager = new TileManager();
             render = new Render(this);
@@ -56,24 +61,10 @@ public class GameWindow extends JFrame implements Runnable {
             gameThread.start();
         }
     
-    
-        private void callUps(){
-            if (System.currentTimeMillis() - lastTimeUPS >= 1000){
-                System.out.println("UPS: " + updates);
-                updates = 0;
-                lastTimeUPS = System.currentTimeMillis();
-            }
+        private void updateGame() {
+
+            // System.out.println("Game Updated!");
         }
-    
-        private void incrementUpsCounter() {
-            updates++;
-            
-        }
-    
-        public GameScreen getGameScreen() {
-            return gameScreen;
-        }
-        
         
         public void run(){
             double timePerFrame = 1000000000.0 / FPS_SET;
@@ -98,7 +89,7 @@ public class GameWindow extends JFrame implements Runnable {
                 }   
     
                 if (System.nanoTime() - lastUpdate >= timePerUpdate){
-                    incrementUpsCounter();
+                    updateGame();
                     lastUpdate = System.nanoTime();
                     updates++;
                 }
@@ -112,13 +103,8 @@ public class GameWindow extends JFrame implements Runnable {
             }
         }
         
-        private void createDefaultLevel() {
-        int[] arr = new int[400];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = 0;
-        }
-
-        ImageLoader.CreateLevel("new_level", arr);
+        public GameScreen getGameScreen(){
+            return gameScreen;
         }
 
         public Render getRender() {
