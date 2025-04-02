@@ -43,8 +43,23 @@ public class GameScreen extends JPanel {
     public void setPanelSize(){
         setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
     }
+
+    @Override
+public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource("assets/background_V2.png"));
+    if (imageIcon.getImage() == null) {
+        System.out.println("Immagine non trovata: assets/background_V2.png");
+    } else {
+        System.out.println("Immagine caricata correttamente!");
+        g.drawImage(imageIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+    }
+
+    gameWindow.getRender().renderGame(g);
+}
     
-    
+    /* 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -53,6 +68,8 @@ public class GameScreen extends JPanel {
         g.drawImage(imageIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
         
         gameWindow.getRender().renderGame(g);
+
+        //
         
 //      g.drawImage(sprites.get(103), 0, 0, null);
 //      g.drawImage(img.getSubimage(32*0, 32*10, 32, 32), 32, 0, null);
