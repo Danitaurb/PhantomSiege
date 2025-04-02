@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
+import model.Constants;
 
 
 public class GameScreen extends JPanel {
@@ -41,7 +41,7 @@ public class GameScreen extends JPanel {
     }
     
     public void setPanelSize(){
-        setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        setPreferredSize(new Dimension(PANEL_WIDTH * Constants.SCALE, PANEL_HEIGHT * Constants.SCALE));
     }
 
     @Override

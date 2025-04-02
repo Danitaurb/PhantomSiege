@@ -14,7 +14,7 @@ public class ImageLoader {
 
         BufferedImage img = null;
 
-        InputStream is = ImageLoader.class.getClassLoader().getResourceAsStream("assets/32x32_map_tile.png");
+        InputStream is = ImageLoader.class.getClassLoader().getResourceAsStream("assets/map_tiles.png");
         try {
             img = ImageIO.read(is);
         } catch (Exception e) {
