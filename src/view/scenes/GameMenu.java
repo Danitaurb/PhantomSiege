@@ -58,6 +58,7 @@ public class GameMenu extends GameScene implements ScenesMethods {
     @Override
     public void mouseMoved(int x, int y) {
 		bPlaying.setMouseOver(false);
+        bEdit.setMouseOver(false);
 		bSettings.setMouseOver(false);
 		bQuit.setMouseOver(false);
 
