@@ -114,7 +114,7 @@ public class ImageLoader {
 
         if (lvlFile.exists()) {
             ArrayList<Integer> list = ReadFromFile(lvlFile);
-            return Utils.ArrayListTo2Dint(list, 20, 20);
+            return Utils.ArrayListTo2Dint(list, 20, 32);
             
         } else {
             System.out.println("File" + name + " does not exist!");

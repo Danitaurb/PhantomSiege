@@ -38,7 +38,7 @@ public class GameWindow extends JFrame implements Runnable {
         }
     
         private void createDefaultLevel() {
-            int[] arr = new int[400];
+            int[] arr = new int[640];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = 0;
             }

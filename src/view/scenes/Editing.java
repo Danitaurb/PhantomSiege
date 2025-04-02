@@ -80,7 +80,7 @@ public class Editing extends GameScene implements ScenesMethods{
 
     @Override
     public void mouseClicked(int x, int y) {
-        if (x >= 640) {
+        if (x >= 1024) {
             toolBar.mouseClicked(x, y);
         } else {
             changeTile(mouseX, mouseY);
@@ -89,7 +89,7 @@ public class Editing extends GameScene implements ScenesMethods{
     
     @Override
     public void mouseMoved(int x, int y) {
-        if (x >= 640) {
+        if (x >= 1024) {
 			toolBar.mouseMoved(x, y);
 			drawSelect = false;
 		} else {
@@ -111,7 +111,7 @@ public class Editing extends GameScene implements ScenesMethods{
 
     @Override
     public void mouseDragged(int x, int y) {
-        if (x >= 640) {
+        if (x >= 1024) {
 
 		} else {
 			changeTile(x, y);
