@@ -1,5 +1,6 @@
 package view.gui;
 
+import controller.EditingController;
 import controller.KeyboardListener;
 import controller.MyMouseListener;
 import java.awt.Dimension;
@@ -8,19 +9,22 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import model.Constants;
-
+import view.scenes.Editing;
+//import view.scenes.gui.GamePhase;
 
 public class GameScreen extends JPanel {
-    
-    private Random random;
-    private GameWindow gameWindow;
-    private Dimension size;
     
     private final int PANEL_WIDTH = 1138;
     private final int PANEL_HEIGHT = 640;
 
+    private Random random;
+    private GameWindow gameWindow;
+    private Dimension size;
+    private Editing editing;
+
     private MyMouseListener myMouseListener;
     private KeyboardListener keyboardListener;
+    private EditingController editingController;
 
     public GameScreen(GameWindow gameWindow) 
     {   
@@ -32,14 +36,48 @@ public class GameScreen extends JPanel {
     public void initInputs(){
         myMouseListener = new MyMouseListener(gameWindow);
         keyboardListener = new KeyboardListener();
+        editingController = new EditingController(editing);
+        
         addMouseListener(myMouseListener);
         addMouseMotionListener(myMouseListener);
         addKeyListener(keyboardListener);
-    
+        
         requestFocus();
     
     }
     
+    public void updateInputs() {
+        // Remove all existing listeners to avoid conflicts
+        removeMouseListener(myMouseListener);
+        removeMouseMotionListener(myMouseListener);
+        removeMouseListener(editingController);
+        removeMouseMotionListener(editingController);
+    
+        // Add listeners based on the current game state
+        switch (GamePhase.getGamePhase()) {
+            case EDIT -> {
+                if (editingController == null) {
+                    editingController = new EditingController(editing);
+                }
+                addMouseListener(editingController);
+                addMouseMotionListener(editingController);
+            }
+            case PLAYING -> {
+                addMouseListener(myMouseListener);
+                addMouseMotionListener(myMouseListener);
+            }
+            default -> {
+                // Handle other states if needed
+            }
+        }
+    
+        // Request focus for keyboard input
+        requestFocus();
+    }
+
+
+
+
     public void setPanelSize(){
         setPreferredSize(new Dimension(PANEL_WIDTH * Constants.SCALE, PANEL_HEIGHT * Constants.SCALE));
     }

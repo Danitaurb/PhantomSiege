@@ -46,11 +46,11 @@ public class GameMenu extends GameScene implements ScenesMethods {
     @Override
     public void mouseClicked(int x, int y) {
         if (bPlaying.getBounds().contains(x, y)) {
-			SetGameState(PLAYING);
+			setGamePhase(PLAYING);
         } else if (bEdit.getBounds().contains(x, y)) {
-            SetGameState(EDIT);
+            setGamePhase(EDIT);
 		} else if (bSettings.getBounds().contains(x, y)) {
-			SetGameState(SETTINGS);
+			setGamePhase(SETTINGS);
 		} else if (bQuit.getBounds().contains(x, y))
 			System.exit(0);
     }

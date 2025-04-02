@@ -7,7 +7,7 @@ import model.map.Tile;
 import view.components.ToolBar;
 import view.gui.GameWindow;
 
-public class Editing extends GameScene implements ScenesMethods{
+public class Editing extends GameScene /*implements ScenesMethods*/{
     
     private int[][] lvl;
     private Tile selectedTile;
@@ -26,7 +26,6 @@ public class Editing extends GameScene implements ScenesMethods{
         lvl = ImageLoader.GetLevelData("new_level");
     }
 
-    @Override
     public void render(Graphics g){
         drawLevel(g);
         toolBar.draw(g);;
@@ -61,7 +60,7 @@ public class Editing extends GameScene implements ScenesMethods{
         drawSelect = true;
     }
 
-    private void changeTile(int x, int y) {
+    public void changeTile(int x, int y) {
 		if (selectedTile != null) {
 
 			int tileX = x / 32;
@@ -78,45 +77,17 @@ public class Editing extends GameScene implements ScenesMethods{
 		}
 	}
 
-    @Override
-    public void mouseClicked(int x, int y) {
-        if (x >= 1024) {
-            toolBar.mouseClicked(x, y);
-        } else {
-            changeTile(mouseX, mouseY);
-        }   
-    }
-    
-    @Override
-    public void mouseMoved(int x, int y) {
-        if (x >= 1024) {
-			toolBar.mouseMoved(x, y);
-			drawSelect = false;
-		} else {
-			drawSelect = true;
-			mouseX = (x / 32) * 32;
-			mouseY = (y / 32) * 32;
-		}
+    public ToolBar getToolBar() {
+        return toolBar;
     }
 
-    @Override
-    public void mousePressed(int x, int y) {
-        // Handle mouse press events here
+    public void setDrawSelect(boolean drawSelect) {
+        this.drawSelect = drawSelect;
     }
 
-    @Override
-    public void mouseReleased(int x, int y) {
-        // Handle mouse release events here
+    public void setMousePosition(int mouseX, int mouseY) {
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
     }
 
-    @Override
-    public void mouseDragged(int x, int y) {
-        if (x >= 1024) {
-
-		} else {
-			changeTile(x, y);
-		}
-    }
-
-    
 }

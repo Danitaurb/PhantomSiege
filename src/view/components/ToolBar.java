@@ -97,7 +97,7 @@ public class ToolBar extends Bar{
 
     public void mouseClicked(int x, int y) {
         if (bMenu.getBounds().contains(x, y)) 
-            SetGameState(MENU);
+            setGamePhase(MENU);
         else if (bSave.getBounds().contains(x, y))
             saveLevel();
         else {

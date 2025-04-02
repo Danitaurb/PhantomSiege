@@ -2,7 +2,6 @@ package view.scenes;
 
 import java.awt.Graphics;
 import view.gui.GamePhase;
-import static view.gui.GamePhase.MENU;
 import view.gui.GameWindow;
 
 public class Render {
@@ -15,7 +14,7 @@ public class Render {
     }
 
     public void renderGame(Graphics g) {
-        switch (GamePhase.gameState) {
+        switch (GamePhase.gamePhase) {
 
             case MENU:
                 gameWindow.getMenu().render(g);

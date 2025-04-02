@@ -1,6 +1,8 @@
 package view.gui;
 
 import javax.swing.JFrame;
+
+import controller.EditingController;
 import model.ImageLoader;
 import model.managers.TileManager;
 import view.scenes.Editing;
@@ -53,7 +55,7 @@ public class GameWindow extends JFrame implements Runnable {
             menu = new GameMenu(this);
             playing = new Playing(this);
             settings = new Settings(this);
-            editing = new Editing(this);   
+            editing = new Editing(this);
 
            }
         public void start(){
